@@ -1,0 +1,179 @@
+{
+  "seo": {
+    "title": "Moving Services Semarang | House & Office Movers — Indo Mover",
+    "description": "Indo Mover — professional moving services in Semarang for home, office, warehouse, and apartment relocations. Careful packing, safe transport, free WhatsApp consultation."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "why": "Why Us",
+    "testimonials": "Reviews",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "cta": "Contact Us"
+  },
+  "hero": {
+    "eyebrow": "Trusted Movers in Semarang",
+    "title": "House & Office Moving Services in Semarang",
+    "subtitle": "Professional moving services from Indo Mover — careful packing, safe transport, and an experienced team for home, office, warehouse, and apartment relocations across Semarang.",
+    "ctaPrimary": "Chat on WhatsApp",
+    "ctaSecondary": "See Services",
+    "waMessage": "Hi Indo Mover, I'd like to ask about your moving services."
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "title": "Professional Movers in Semarang",
+    "body": "Indo Mover provides moving services for homes, offices, warehouses, and apartments in Semarang and the surrounding area. We focus on the safety of your belongings, on-time delivery, and customer satisfaction—from survey and packing all the way to unloading. Our moving services have been trusted by hundreds of families and businesses across Central Java.",
+    "highlights": [
+      "Free on-site survey",
+      "High-quality packing materials",
+      "Well-maintained fleet & experienced drivers",
+      "In-city and inter-city moving services",
+      "Optional insurance for valuable items"
+    ]
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "End-to-End Moving Services",
+    "learnMore": "Learn More",
+    "modal": {
+      "close": "Close",
+      "includes": "What's Included",
+      "cta": "Ask About This Service",
+      "waMessage": "Hi Indo Mover, I'm interested in your {service} service. Can you share more details?"
+    },
+    "items": [
+      {
+        "slug": "packing",
+        "image": "/images/service-packing.jpg",
+        "title": "Professional Packing",
+        "desc": "Careful packing of valuables with the right materials—bubble wrap, sturdy boxes, and corner protectors—for both home and office moves.",
+        "bullets": [
+          "Bubble wrap and double-wall boxes",
+          "Corner protectors for wood furniture",
+          "Per-room labeling for fast unpacking",
+          "Special handling for fragile items & electronics"
+        ]
+      },
+      {
+        "slug": "transport",
+        "image": "/images/service-handtruck.jpg",
+        "title": "Safe Moving Transport",
+        "desc": "Closed, well-maintained trucks with proper tie-downs—for in-city moves around Semarang or inter-city relocations.",
+        "bullets": [
+          "Closed trucks in multiple sizes (small, medium, large)",
+          "Tie-downs and backup tarps",
+          "Experienced drivers across Central Java",
+          "Estimated arrival tracking"
+        ]
+      },
+      {
+        "slug": "loading",
+        "image": "/images/service-carrying.jpg",
+        "title": "Loading & Unloading",
+        "desc": "A team ready for heavy lifting and furniture handling, including disassembly and reassembly—part of our complete moving services.",
+        "bullets": [
+          "Teams of 2–4 people per unit",
+          "Disassembly/assembly of wardrobes, beds, desks",
+          "Tight access handling (stairs, narrow elevators)",
+          "Reorganization to match your new layout"
+        ]
+      },
+      {
+        "slug": "commercial",
+        "image": "/images/service-box.jpg",
+        "title": "Office & Commercial Moving",
+        "desc": "Specialized handling for office, retail, and warehouse moves in Semarang with minimal operational downtime.",
+        "bullets": [
+          "Survey and scheduling outside business hours",
+          "Archive and IT equipment packing",
+          "Inventory and handover checklist",
+          "On-site coordination lead"
+        ]
+      }
+    ]
+  },
+  "why": {
+    "eyebrow": "Why Choose Us",
+    "title": "Why Choose Indo Mover for Your Move",
+    "items": [
+      {
+        "title": "Professional",
+        "desc": "Trained team, neat uniforms, and clear communication from start to finish—the standard for professional moving services."
+      },
+      {
+        "title": "Safety",
+        "desc": "Proven packing and handling SOPs to minimize the risk of damage during the move."
+      },
+      {
+        "title": "Flexible",
+        "desc": "Moving schedule that adapts to your needs—including weekends and evenings."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Reviews",
+    "title": "What Indo Mover Customers Say",
+    "ratingSuffix": "based on {count} Google reviews",
+    "viewAll": "See all reviews on Google",
+    "fallbackNote": "Live reviews will appear after deploy.",
+    "items": [
+      {
+        "name": "Rini A.",
+        "location": "Tembalang, Semarang",
+        "quote": "Moving into our new home was stress-free. The team arrived on time, packed everything carefully, and nothing got damaged."
+      },
+      {
+        "name": "Budi S.",
+        "location": "Banyumanik, Semarang",
+        "quote": "I used Indo Mover for our office relocation. Fast, professional, and the price matched the quality."
+      },
+      {
+        "name": "Maria L.",
+        "location": "West Semarang",
+        "quote": "Great communication, free survey, and a very polite team. Recommended for family moves."
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "How much does a moving service in Semarang cost?",
+        "a": "The cost depends on the volume of items, distance, and add-ons such as packing or loading-unloading. Indo Mover offers a free on-site survey to give you an accurate quote before the move."
+      },
+      {
+        "q": "What areas do you serve?",
+        "a": "We serve home, office, and apartment moves across Semarang and the surrounding area, plus inter-city moves throughout Central Java and beyond."
+      },
+      {
+        "q": "Are belongings insured during the move?",
+        "a": "Insurance is available as an add-on for high-value items. Details can be discussed during the survey."
+      },
+      {
+        "q": "How long does a typical home move take?",
+        "a": "Usually 4–8 hours for an in-city home move in Semarang, depending on volume and access. Inter-city moves vary by route."
+      },
+      {
+        "q": "Do you handle office relocations?",
+        "a": "Yes. We have a dedicated team for office, retail, and warehouse moves with after-hours scheduling so your business isn't disrupted."
+      },
+      {
+        "q": "How do I book Indo Mover?",
+        "a": "Just reach out on WhatsApp. The team will schedule a free on-site survey and give you a quote tailored to your move."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Need a Mover in Semarang? Start Here",
+    "subtitle": "Free consultation and survey for your home, office, or apartment move. Reach out on WhatsApp for a quick quote.",
+    "button": "Chat on WhatsApp",
+    "waMessage": "Hi Indo Mover, I'd like a quote for my move."
+  },
+  "footer": {
+    "tagline": "Professional moving services in Semarang—home, office, warehouse, and apartment relocations.",
+    "rights": "All rights reserved."
+  }
+}
