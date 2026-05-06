@@ -28,7 +28,7 @@ This document is the single source of truth for what's been built and why. Updat
 | 3 | Languages | Indonesian + English | Default is **always Indonesian**. EN is opt-in via the toggle and persisted in `localStorage`. |
 | 4 | Contact | WhatsApp deep links only | All CTAs build `wa.me/<number>?text=...` links. No backend form. |
 | 5 | Hosting | Vercel free tier (Hobby) | Static SPA + 1 edge function for cron. |
-| 6 | Reviews | **Build-time bake** from Google Places API (New) | Fetched during `prebuild`, written to `src/data/reviews.json`, imported into the bundle. **No API key in the client.** Refreshed daily by Vercel Cron. |
+| 6 | Reviews | **Build-time bake** from Google Places API (New) | Fetched during `prebuild`, written to `src/data/reviews.json`, imported into the bundle. **No API key in the client.** Refreshed monthly by Vercel Cron. |
 | 7 | SEO | Keyword-rich copy + JSON-LD + static prerender | Targets "jasa pindah", "jasa pindah rumah", "jasa pindah Semarang", "jasa pindah kantor" + EN equivalents. JSON-LD MovingCompany / FAQPage / WebSite schemas use real address, phone, geo, and aggregateRating from the Places API. |
 
 ---
@@ -141,7 +141,7 @@ When the user toggles language, `SeoHead` updates `document.title`, `<meta name=
 ### Cron refresh
 
 ```
-Vercel Cron (daily, 03:00 UTC)
+Vercel Cron (monthly, 03:00 UTC on the 1st)
      │
      ▼  (Authorization: Bearer ${CRON_SECRET})
 api/cron-rebuild.ts (edge function)
@@ -152,6 +152,8 @@ VERCEL_DEPLOY_HOOK_URL
      ▼
 Fresh production build → prebuild fetches reviews → deploys
 ```
+
+Schedule: `0 3 1 * *` — 03:00 UTC on day 1 of each month (= 10:00 WIB on the 1st). 12 rebuilds per year is plenty for a stable business listing whose Google reviews change slowly. To bump it up later, edit the `crons` entry in `vercel.json`.
 
 `vercel.json` has the cron entry. The rewrite excludes `/api/` so the function is reachable.
 
@@ -219,12 +221,12 @@ If you see `[reviews] GOOGLE_PLACE_ID or GOOGLE_PLACES_KEY not set — skipping 
 
 **A5.** Open the preview URL. Reviews section should show real Google reviews with the "4.9★ based on 132 Google reviews" header.
 
-### Phase B — daily review refresh (Vercel Cron)
+### Phase B — monthly review refresh (Vercel Cron)
 
-Without this phase the site still works; reviews just won't auto-update. Set this up if you want fresh reviews every day.
+Without this phase the site still works; reviews just won't auto-update. Set this up if you want fresh reviews every month.
 
 **B1.** **Project Settings → Git → Deploy Hooks** → **Create Hook**.
-   - Hook name: `Daily reviews refresh`
+   - Hook name: `Monthly reviews refresh`
    - Branch: `main`
    - Click **Create Hook**, then copy the generated URL (`https://api.vercel.com/v1/integrations/deploy/...`).
 
@@ -236,7 +238,7 @@ Without this phase the site still works; reviews just won't auto-update. Set thi
 
 **B3.** Trigger a redeploy (Deployments tab → ⋯ → Redeploy on the latest) so the new env var is picked up by the edge function.
 
-**B4.** Verify the cron is active: **Project → Cron Jobs tab** should show `/api/cron-rebuild` on schedule `0 3 * * *`. Click **Run** once. The function should return `{"triggered":true, ...}` and a new deployment should kick off within ~60 seconds.
+**B4.** Verify the cron is active: **Project → Cron Jobs tab** should show `/api/cron-rebuild` on schedule `0 3 1 * *`. Click **Run** once. The function should return `{"triggered":true, ...}` and a new deployment should kick off within ~60 seconds. (You don't have to wait until the 1st of the month to test — the manual Run button bypasses the schedule.)
 
 You don't need to set `CRON_SECRET` — Vercel auto-injects it on every cron invocation, and the edge function verifies it.
 
@@ -254,7 +256,7 @@ You don't need to set `CRON_SECRET` — Vercel auto-injects it on every cron inv
 
 ### Cron schedule
 
-`0 3 * * *` = daily at 03:00 UTC = **10:00 WIB**. Vercel Hobby tier allows daily cron only; this is the maximum cadence on the free plan.
+`0 3 1 * *` = **03:00 UTC on the 1st of each month** = 10:00 WIB on the 1st. Vercel Hobby tier caps cron at "no more than once per day"; monthly is well within that limit. Pick a different cadence by editing the `schedule` field — e.g. `0 3 * * 1` for every Monday, `0 3 * * *` for daily.
 
 ### API key safety
 
