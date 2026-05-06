@@ -15,6 +15,7 @@ This document is the single source of truth for what's been built and why. Updat
 - **No router** — single page with anchor scrolling. `react-router-dom` was deliberately not added.
 - **Hand-rolled i18n** (`LanguageContext` + two JSON dicts). No `react-i18next`.
 - **Static prerender** — `postbuild` SSR-renders the React tree once and injects ~66 KB of HTML into `dist/index.html` so crawlers see fully-rendered content without waiting for hydration.
+- **`@vercel/analytics`** — `<Analytics />` mounted at the App root; auto-detects the deployment, no-ops in local dev. Stats land in the Vercel project's Analytics tab.
 
 ---
 
@@ -51,6 +52,7 @@ This document is the single source of truth for what's been built and why. Updat
 Plus, mounted at the root and rendering `null` to the DOM:
 - `SeoHead` — useEffect updates `<title>`, `<meta description>`, OG locale, canonical, and hreflang on language change.
 - `JsonLd` — emits three `<script type="application/ld+json">` tags (`MovingCompany`, `FAQPage`, `WebSite`) inside the React tree so they end up in the SSR'd HTML.
+- `<Analytics />` from `@vercel/analytics/react` — Vercel's first-party page-view tracker. No config needed; the script auto-detects the deployment domain. Local dev is a no-op.
 
 Floating: `WhatsAppButton` (bottom-right FAB) + `ScrollToTop` (appears after 400px scroll).
 
@@ -248,6 +250,8 @@ You don't need to set `CRON_SECRET` — Vercel auto-injects it on every cron inv
 
 **C3.** [Google Search Console](https://search.google.com/search-console) → add the domain → submit `https://indo-mover.com/sitemap.xml`.
 
+**C4.** Project → **Analytics** tab → click **Enable Analytics**. The `<Analytics />` script in the bundle starts reporting page views immediately (Hobby tier includes ~2,500 events / month).
+
 ### Cron schedule
 
 `0 3 * * *` = daily at 03:00 UTC = **10:00 WIB**. Vercel Hobby tier allows daily cron only; this is the maximum cadence on the free plan.
@@ -325,7 +329,7 @@ indomover/
 - [ ] After first deploy: submit `https://indo-mover.com/sitemap.xml` to Google Search Console.
 - [ ] After first deploy: validate JSON-LD with [Schema.org Validator](https://validator.schema.org/) and Google's [Rich Results Test](https://search.google.com/test/rich-results).
 - [ ] After first deploy: point `indo-mover.com` DNS to Vercel.
-- [ ] Add Vercel Analytics (optional, one-line add).
+- [ ] After first deploy: enable Analytics in the Vercel dashboard (the `<Analytics />` component is already wired in `src/App.tsx`).
 
 ## Out of scope
 

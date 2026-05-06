@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -14,23 +15,24 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
-  return (
-    <LanguageProvider>
-      <SeoHead />
-      <JsonLd />
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <WhyUs />
-        <Testimonials />
-        <FAQ />
-        <CTA />
-      </main>
-      <Footer />
-      <WhatsAppButton />
-      <ScrollToTop />
-    </LanguageProvider>
-  );
+	return (
+		<LanguageProvider>
+			<SeoHead />
+			<JsonLd />
+			<Navbar />
+			<main>
+				<Hero />
+				<About />
+				<Services />
+				<WhyUs />
+				<Testimonials />
+				<FAQ />
+				<CTA />
+			</main>
+			<Footer />
+			<WhatsAppButton />
+			<ScrollToTop />
+			<Analytics />
+		</LanguageProvider>
+	);
 }
