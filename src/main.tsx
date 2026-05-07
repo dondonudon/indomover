@@ -3,15 +3,16 @@ import { createRoot, hydrateRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
 
-const rootEl = document.getElementById("root")!;
+const rootEl = document.getElementById("root");
+if (!rootEl) throw new Error("Root element #root not found");
 const tree = (
-  <StrictMode>
-    <App />
-  </StrictMode>
+	<StrictMode>
+		<App />
+	</StrictMode>
 );
 
 if (rootEl.hasChildNodes()) {
-  hydrateRoot(rootEl, tree);
+	hydrateRoot(rootEl, tree);
 } else {
-  createRoot(rootEl).render(tree);
+	createRoot(rootEl).render(tree);
 }

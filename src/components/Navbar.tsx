@@ -1,18 +1,10 @@
-import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { buildWaLink } from "../lib/whatsapp";
-import { useScrollSpy } from "../lib/useScrollSpy";
+import { useEffect, useState } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { useScrollSpy } from "../lib/useScrollSpy";
+import { buildWaLink } from "../lib/whatsapp";
 
-const SECTION_IDS = [
-	"beranda",
-	"tentang",
-	"layanan",
-	"mengapa",
-	"testimoni",
-	"faq",
-	"kontak",
-];
+const SECTION_IDS = ["beranda", "tentang", "layanan", "mengapa", "testimoni", "faq", "kontak"];
 
 export default function Navbar() {
 	const { t, lang, setLang } = useLanguage();
@@ -41,9 +33,7 @@ export default function Navbar() {
 	const onLight = scrolled || open;
 
 	const logoText = onLight ? "text-ink-900" : "text-white";
-	const linkBase = onLight
-		? "text-ink-700 hover:text-ink-900"
-		: "text-white/85 hover:text-white";
+	const linkBase = onLight ? "text-ink-700 hover:text-ink-900" : "text-white/85 hover:text-white";
 	const linkActive = onLight ? "text-brand-700" : "text-white";
 	const togglePlate = onLight
 		? "border-ink-200 bg-white"
@@ -51,9 +41,7 @@ export default function Navbar() {
 	const toggleInactive = onLight
 		? "text-ink-700 hover:text-ink-900"
 		: "text-white/85 hover:text-white";
-	const toggleActive = onLight
-		? "bg-ink-900 text-white"
-		: "bg-white text-ink-900";
+	const toggleActive = onLight ? "bg-ink-900 text-white" : "bg-white text-ink-900";
 	const mobileBtn = onLight
 		? "border-ink-200 bg-white text-ink-900"
 		: "border-white/30 bg-white/10 text-white backdrop-blur";
@@ -66,20 +54,11 @@ export default function Navbar() {
 			].join(" ")}
 		>
 			<div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-				<a
-					href="#beranda"
-					className="flex items-center gap-2 font-bold tracking-tight"
-				>
+				<a href="#beranda" className="flex items-center gap-2 font-bold tracking-tight">
 					<span className="grid h-10 w-10 place-items-center rounded-xl bg-white shadow-sm ring-1 ring-ink-900/10">
-						<img
-							src="/images/indo-mover-logo-only.png"
-							alt=""
-							className="h-8 w-8 object-contain"
-						/>
+						<img src="/images/indo-mover-logo-only.png" alt="" className="h-8 w-8 object-contain" />
 					</span>
-					<span className={`text-lg transition-colors ${logoText}`}>
-						Indo Mover
-					</span>
+					<span className={`text-lg transition-colors ${logoText}`}>Indo Mover</span>
 				</a>
 
 				<nav className="hidden items-center gap-1 md:flex" aria-label="Main">
@@ -148,9 +127,7 @@ export default function Navbar() {
 								onClick={() => setOpen(false)}
 								className={[
 									"rounded-lg px-3 py-2 text-sm font-medium",
-									active === l.id
-										? "bg-brand-50 text-brand-700"
-										: "text-ink-700 hover:bg-ink-50",
+									active === l.id ? "bg-brand-50 text-brand-700" : "text-ink-700 hover:bg-ink-50",
 								].join(" ")}
 							>
 								{l.label}
@@ -165,9 +142,7 @@ export default function Navbar() {
 									aria-pressed={lang === l}
 									className={[
 										"rounded-full px-3 py-1 text-xs font-semibold uppercase",
-										lang === l
-											? "bg-ink-900 text-white"
-											: "border border-ink-200 text-ink-700",
+										lang === l ? "bg-ink-900 text-white" : "border border-ink-200 text-ink-700",
 									].join(" ")}
 								>
 									{l}

@@ -1,18 +1,18 @@
 import { Analytics } from "@vercel/analytics/react";
-import { LanguageProvider } from "./i18n/LanguageContext";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
 import About from "./components/About";
-import Services from "./components/Services";
-import WhyUs from "./components/WhyUs";
-import Testimonials from "./components/Testimonials";
-import FAQ from "./components/FAQ";
 import CTA from "./components/CTA";
-import JsonLd from "./components/JsonLd";
-import SeoHead from "./components/SeoHead";
+import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
-import WhatsAppButton from "./components/WhatsAppButton";
+import Hero from "./components/Hero";
+import JsonLd from "./components/JsonLd";
+import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
+import SeoHead from "./components/SeoHead";
+import Services from "./components/Services";
+import Testimonials from "./components/Testimonials";
+import WhatsAppButton from "./components/WhatsAppButton";
+import WhyUs from "./components/WhyUs";
+import { LanguageProvider } from "./i18n/LanguageContext";
 
 export default function App() {
 	return (

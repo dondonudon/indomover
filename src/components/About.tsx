@@ -20,9 +20,7 @@ export default function About() {
 					<h2 className="mt-2 text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
 						{t.about.title}
 					</h2>
-					<p className="mt-5 text-lg leading-relaxed text-ink-700">
-						{t.about.body}
-					</p>
+					<p className="mt-5 text-lg leading-relaxed text-ink-700">{t.about.body}</p>
 
 					<ul className="mt-8 grid gap-3 sm:grid-cols-2">
 						{t.about.highlights.map((h) => (
@@ -53,9 +51,7 @@ export default function About() {
 					</div>
 					<div className="absolute -bottom-6 -left-6 hidden rounded-2xl bg-white p-5 shadow-lg ring-1 ring-ink-200 sm:block">
 						<p className="text-3xl font-extrabold text-brand-600">500+</p>
-						<p className="text-sm font-medium text-ink-700">
-							{t.about.eyebrow}
-						</p>
+						<p className="text-sm font-medium text-ink-700">{t.about.eyebrow}</p>
 					</div>
 				</motion.div>
 			</div>

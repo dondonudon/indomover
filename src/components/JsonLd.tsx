@@ -78,15 +78,7 @@ export default function JsonLd() {
 		openingHoursSpecification: [
 			{
 				"@type": "OpeningHoursSpecification",
-				dayOfWeek: [
-					"Monday",
-					"Tuesday",
-					"Wednesday",
-					"Thursday",
-					"Friday",
-					"Saturday",
-					"Sunday",
-				],
+				dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 				opens: "08:00",
 				closes: "20:00",
 			},
@@ -127,14 +119,8 @@ export default function JsonLd() {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: safeJson(localBusiness) }}
 			/>
-			<script
-				type="application/ld+json"
-				dangerouslySetInnerHTML={{ __html: safeJson(faqPage) }}
-			/>
-			<script
-				type="application/ld+json"
-				dangerouslySetInnerHTML={{ __html: safeJson(website) }}
-			/>
+			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJson(faqPage) }} />
+			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJson(website) }} />
 		</>
 	);
 }

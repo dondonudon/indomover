@@ -1,51 +1,51 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans:
-    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+	--font-sans:
+		"Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+		sans-serif;
 
-  /* Brand */
-  --color-brand-50: #f0f9ff;
-  --color-brand-100: #e0f2fe;
-  --color-brand-200: #bae6fd;
-  --color-brand-300: #7dd3fc;
-  --color-brand-400: #38bdf8;
-  --color-brand-500: #0ea5e9;
-  --color-brand-600: #0284c7;
-  --color-brand-700: #0369a1;
-  --color-brand-800: #075985;
-  --color-brand-900: #0c4a6e;
+	/* Brand */
+	--color-brand-50: #f0f9ff;
+	--color-brand-100: #e0f2fe;
+	--color-brand-200: #bae6fd;
+	--color-brand-300: #7dd3fc;
+	--color-brand-400: #38bdf8;
+	--color-brand-500: #0ea5e9;
+	--color-brand-600: #0284c7;
+	--color-brand-700: #0369a1;
+	--color-brand-800: #075985;
+	--color-brand-900: #0c4a6e;
 
-  --color-ink-50: #f8fafc;
-  --color-ink-100: #f1f5f9;
-  --color-ink-200: #e2e8f0;
-  --color-ink-700: #334155;
-  --color-ink-800: #1e293b;
-  --color-ink-900: #0f172a;
+	--color-ink-50: #f8fafc;
+	--color-ink-100: #f1f5f9;
+	--color-ink-200: #e2e8f0;
+	--color-ink-700: #334155;
+	--color-ink-800: #1e293b;
+	--color-ink-900: #0f172a;
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    @apply bg-white text-ink-900 antialiased;
-    font-family: var(--font-sans);
-  }
-  section[id] {
-    scroll-margin-top: 5rem;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
+	html {
+		scroll-behavior: smooth;
+	}
+	body {
+		@apply bg-white text-ink-900 antialiased;
+		font-family: var(--font-sans);
+	}
+	section[id] {
+		scroll-margin-top: 5rem;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+		}
+	}
 }

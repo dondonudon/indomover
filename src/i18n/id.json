@@ -1,179 +1,179 @@
 {
-  "seo": {
-    "title": "Jasa Pindah Rumah & Kantor Semarang | Indo Mover",
-    "description": "Indo Mover — jasa pindah rumah, kantor, gudang, dan apartemen di Semarang. Packing profesional, transportasi aman, tim berpengalaman. Konsultasi & survey gratis via WhatsApp."
-  },
-  "nav": {
-    "home": "Beranda",
-    "about": "Tentang",
-    "services": "Layanan",
-    "why": "Mengapa Kami",
-    "testimonials": "Testimoni",
-    "faq": "FAQ",
-    "contact": "Kontak",
-    "cta": "Hubungi Kami"
-  },
-  "hero": {
-    "eyebrow": "Jasa Pindah Semarang Terpercaya",
-    "title": "Jasa Pindah Rumah & Kantor di Semarang",
-    "subtitle": "Solusi pindahan profesional dari Indo Mover — packing rapi, transportasi aman, tim berpengalaman untuk pindah rumah, kantor, gudang, dan apartemen di Semarang dan sekitarnya.",
-    "ctaPrimary": "Hubungi via WhatsApp",
-    "ctaSecondary": "Lihat Layanan",
-    "waMessage": "Halo Indo Mover, saya ingin bertanya tentang jasa pindah."
-  },
-  "about": {
-    "eyebrow": "Tentang Kami",
-    "title": "Tim Jasa Pindah Profesional di Semarang",
-    "body": "Indo Mover adalah penyedia jasa pindah rumah, kantor, gudang, dan apartemen di Semarang dan sekitarnya. Kami fokus pada keselamatan barang, ketepatan waktu, dan kepuasan pelanggan—dari survey, packing, sampai bongkar di lokasi tujuan. Layanan jasa pindahan kami telah dipercaya oleh ratusan keluarga dan perusahaan di Jawa Tengah.",
-    "highlights": [
-      "Survey gratis di lokasi",
-      "Material packing berkualitas",
-      "Armada terawat & sopir berpengalaman",
-      "Layanan jasa pindah dalam & luar kota",
-      "Asuransi opsional untuk barang bernilai"
-    ]
-  },
-  "services": {
-    "eyebrow": "Layanan",
-    "title": "Layanan Jasa Pindah Lengkap dari Awal sampai Selesai",
-    "learnMore": "Pelajari Lebih Lanjut",
-    "modal": {
-      "close": "Tutup",
-      "includes": "Yang Termasuk",
-      "cta": "Tanya Layanan Ini",
-      "waMessage": "Halo Indo Mover, saya tertarik dengan layanan {service}. Bisa info lebih lanjut?"
-    },
-    "items": [
-      {
-        "slug": "packing",
-        "image": "/images/service-packing.jpg",
-        "title": "Jasa Packing Profesional",
-        "desc": "Pengemasan barang berharga dengan material yang sesuai—bubble wrap, karton tebal, dan pelindung sudut—untuk jasa pindah rumah maupun kantor.",
-        "bullets": [
-          "Bubble wrap dan karton double wall",
-          "Pelindung sudut untuk furnitur kayu",
-          "Labeling per ruangan untuk unpack cepat",
-          "Penanganan khusus barang pecah-belah & elektronik"
-        ]
-      },
-      {
-        "slug": "transport",
-        "image": "/images/service-handtruck.jpg",
-        "title": "Jasa Transportasi Pindahan",
-        "desc": "Armada tertutup dan terawat dengan tali pengikat khusus, untuk jasa pindah dalam kota Semarang maupun antar kota.",
-        "bullets": [
-          "Truk tertutup berbagai ukuran (CDE, CDD, Fuso)",
-          "Tali pengikat dan terpal cadangan",
-          "Sopir berpengalaman rute Jateng & sekitarnya",
-          "Tracking estimasi waktu tiba"
-        ]
-      },
-      {
-        "slug": "loading",
-        "image": "/images/service-carrying.jpg",
-        "title": "Jasa Bongkar & Muat Barang",
-        "desc": "Tim siap angkat barang berat dan furnitur, termasuk pembongkaran serta perakitan ulang—bagian dari layanan jasa pindahan menyeluruh.",
-        "bullets": [
-          "Tim minimal 2–4 orang per unit",
-          "Bongkar-pasang lemari, ranjang, meja kerja",
-          "Penanganan akses sulit (tangga, lift sempit)",
-          "Penataan ulang sesuai denah baru Anda"
-        ]
-      },
-      {
-        "slug": "commercial",
-        "image": "/images/service-box.jpg",
-        "title": "Jasa Pindah Kantor & Komersial",
-        "desc": "Penanganan khusus untuk jasa pindah kantor, toko, dan gudang di Semarang dengan minim downtime operasional.",
-        "bullets": [
-          "Survey dan jadwal di luar jam operasional",
-          "Packing arsip dan peralatan IT",
-          "Inventaris dan checklist serah-terima",
-          "Tim koordinator on-site"
-        ]
-      }
-    ]
-  },
-  "why": {
-    "eyebrow": "Mengapa Memilih Kami",
-    "title": "Kenapa Memilih Jasa Pindah Indo Mover",
-    "items": [
-      {
-        "title": "Profesional",
-        "desc": "Tim terlatih, seragam rapi, dan komunikasi jelas dari awal sampai selesai—standar jasa pindah profesional."
-      },
-      {
-        "title": "Keamanan",
-        "desc": "SOP packing dan handling untuk meminimalkan risiko kerusakan barang selama proses pindahan."
-      },
-      {
-        "title": "Fleksibel",
-        "desc": "Jadwal jasa pindah menyesuaikan kebutuhan Anda, termasuk akhir pekan dan malam hari."
-      }
-    ]
-  },
-  "testimonials": {
-    "eyebrow": "Testimoni",
-    "title": "Apa Kata Pelanggan Jasa Pindah Indo Mover",
-    "ratingSuffix": "berdasarkan {count} ulasan Google",
-    "viewAll": "Lihat semua ulasan di Google",
-    "fallbackNote": "Ulasan otomatis akan tampil setelah deploy.",
-    "items": [
-      {
-        "name": "Rini A.",
-        "location": "Tembalang, Semarang",
-        "quote": "Pindahan ke rumah baru jadi tidak stress. Tim datang tepat waktu, packing rapi, dan tidak ada barang yang rusak."
-      },
-      {
-        "name": "Budi S.",
-        "location": "Banyumanik, Semarang",
-        "quote": "Saya pakai jasa Indo Mover untuk pindahan kantor. Cepat, profesional, dan harga sesuai dengan kualitasnya."
-      },
-      {
-        "name": "Maria L.",
-        "location": "Semarang Barat",
-        "quote": "Komunikasi enak, survey gratis, dan tim sangat sopan. Recommended untuk pindahan keluarga."
-      }
-    ]
-  },
-  "faq": {
-    "eyebrow": "FAQ",
-    "title": "Pertanyaan yang Sering Ditanyakan",
-    "items": [
-      {
-        "q": "Berapa biaya jasa pindah rumah di Semarang?",
-        "a": "Biaya jasa pindah tergantung volume barang, jarak tempuh, dan layanan tambahan seperti packing atau bongkar-muat. Indo Mover menyediakan survey gratis di lokasi untuk memberikan estimasi yang akurat sebelum pindahan."
-      },
-      {
-        "q": "Area mana saja yang dilayani Indo Mover?",
-        "a": "Kami melayani jasa pindah rumah, kantor, dan apartemen di seluruh Semarang dan sekitarnya, serta jasa pindah antar kota di Jawa Tengah dan luar provinsi."
-      },
-      {
-        "q": "Apakah barang diasuransikan selama proses pindahan?",
-        "a": "Asuransi tersedia sebagai opsi tambahan untuk barang bernilai tinggi. Detailnya bisa didiskusikan saat sesi survey."
-      },
-      {
-        "q": "Berapa lama proses pindahan rumah biasanya?",
-        "a": "Umumnya 4–8 jam untuk jasa pindah rumah dalam kota Semarang, tergantung volume barang dan akses lokasi. Untuk pindah antar kota durasinya menyesuaikan rute."
-      },
-      {
-        "q": "Apakah Indo Mover melayani jasa pindah kantor?",
-        "a": "Ya. Kami memiliki tim khusus untuk jasa pindah kantor, toko, dan gudang dengan jadwal di luar jam operasional agar tidak mengganggu bisnis Anda."
-      },
-      {
-        "q": "Bagaimana cara pesan jasa pindah Indo Mover?",
-        "a": "Cukup hubungi kami via WhatsApp. Tim akan menjadwalkan survey gratis di lokasi Anda dan memberikan penawaran sesuai kebutuhan pindahan."
-      }
-    ]
-  },
-  "cta": {
-    "title": "Butuh Jasa Pindah di Semarang? Mulai dari Sini",
-    "subtitle": "Konsultasi dan survey gratis untuk jasa pindah rumah, kantor, atau apartemen Anda. Hubungi kami via WhatsApp untuk penawaran cepat.",
-    "button": "Chat WhatsApp Sekarang",
-    "waMessage": "Halo Indo Mover, saya ingin minta penawaran untuk jasa pindah."
-  },
-  "footer": {
-    "tagline": "Jasa pindah profesional di Semarang—pindah rumah, kantor, gudang, dan apartemen.",
-    "rights": "Hak cipta dilindungi."
-  }
+	"seo": {
+		"title": "Jasa Pindah Rumah & Kantor Semarang | Indo Mover",
+		"description": "Indo Mover — jasa pindah rumah, kantor, gudang, dan apartemen di Semarang. Packing profesional, transportasi aman, tim berpengalaman. Konsultasi & survey gratis via WhatsApp."
+	},
+	"nav": {
+		"home": "Beranda",
+		"about": "Tentang",
+		"services": "Layanan",
+		"why": "Mengapa Kami",
+		"testimonials": "Testimoni",
+		"faq": "FAQ",
+		"contact": "Kontak",
+		"cta": "Hubungi Kami"
+	},
+	"hero": {
+		"eyebrow": "Jasa Pindah Semarang Terpercaya",
+		"title": "Jasa Pindah Rumah & Kantor di Semarang",
+		"subtitle": "Solusi pindahan profesional dari Indo Mover — packing rapi, transportasi aman, tim berpengalaman untuk pindah rumah, kantor, gudang, dan apartemen di Semarang dan sekitarnya.",
+		"ctaPrimary": "Hubungi via WhatsApp",
+		"ctaSecondary": "Lihat Layanan",
+		"waMessage": "Halo Indo Mover, saya ingin bertanya tentang jasa pindah."
+	},
+	"about": {
+		"eyebrow": "Tentang Kami",
+		"title": "Tim Jasa Pindah Profesional di Semarang",
+		"body": "Indo Mover adalah penyedia jasa pindah rumah, kantor, gudang, dan apartemen di Semarang dan sekitarnya. Kami fokus pada keselamatan barang, ketepatan waktu, dan kepuasan pelanggan—dari survey, packing, sampai bongkar di lokasi tujuan. Layanan jasa pindahan kami telah dipercaya oleh ratusan keluarga dan perusahaan di Jawa Tengah.",
+		"highlights": [
+			"Survey gratis di lokasi",
+			"Material packing berkualitas",
+			"Armada terawat & sopir berpengalaman",
+			"Layanan jasa pindah dalam & luar kota",
+			"Asuransi opsional untuk barang bernilai"
+		]
+	},
+	"services": {
+		"eyebrow": "Layanan",
+		"title": "Layanan Jasa Pindah Lengkap dari Awal sampai Selesai",
+		"learnMore": "Pelajari Lebih Lanjut",
+		"modal": {
+			"close": "Tutup",
+			"includes": "Yang Termasuk",
+			"cta": "Tanya Layanan Ini",
+			"waMessage": "Halo Indo Mover, saya tertarik dengan layanan {service}. Bisa info lebih lanjut?"
+		},
+		"items": [
+			{
+				"slug": "packing",
+				"image": "/images/service-packing.jpg",
+				"title": "Jasa Packing Profesional",
+				"desc": "Pengemasan barang berharga dengan material yang sesuai—bubble wrap, karton tebal, dan pelindung sudut—untuk jasa pindah rumah maupun kantor.",
+				"bullets": [
+					"Bubble wrap dan karton double wall",
+					"Pelindung sudut untuk furnitur kayu",
+					"Labeling per ruangan untuk unpack cepat",
+					"Penanganan khusus barang pecah-belah & elektronik"
+				]
+			},
+			{
+				"slug": "transport",
+				"image": "/images/service-handtruck.jpg",
+				"title": "Jasa Transportasi Pindahan",
+				"desc": "Armada tertutup dan terawat dengan tali pengikat khusus, untuk jasa pindah dalam kota Semarang maupun antar kota.",
+				"bullets": [
+					"Truk tertutup berbagai ukuran (CDE, CDD, Fuso)",
+					"Tali pengikat dan terpal cadangan",
+					"Sopir berpengalaman rute Jateng & sekitarnya",
+					"Tracking estimasi waktu tiba"
+				]
+			},
+			{
+				"slug": "loading",
+				"image": "/images/service-carrying.jpg",
+				"title": "Jasa Bongkar & Muat Barang",
+				"desc": "Tim siap angkat barang berat dan furnitur, termasuk pembongkaran serta perakitan ulang—bagian dari layanan jasa pindahan menyeluruh.",
+				"bullets": [
+					"Tim minimal 2–4 orang per unit",
+					"Bongkar-pasang lemari, ranjang, meja kerja",
+					"Penanganan akses sulit (tangga, lift sempit)",
+					"Penataan ulang sesuai denah baru Anda"
+				]
+			},
+			{
+				"slug": "commercial",
+				"image": "/images/service-box.jpg",
+				"title": "Jasa Pindah Kantor & Komersial",
+				"desc": "Penanganan khusus untuk jasa pindah kantor, toko, dan gudang di Semarang dengan minim downtime operasional.",
+				"bullets": [
+					"Survey dan jadwal di luar jam operasional",
+					"Packing arsip dan peralatan IT",
+					"Inventaris dan checklist serah-terima",
+					"Tim koordinator on-site"
+				]
+			}
+		]
+	},
+	"why": {
+		"eyebrow": "Mengapa Memilih Kami",
+		"title": "Kenapa Memilih Jasa Pindah Indo Mover",
+		"items": [
+			{
+				"title": "Profesional",
+				"desc": "Tim terlatih, seragam rapi, dan komunikasi jelas dari awal sampai selesai—standar jasa pindah profesional."
+			},
+			{
+				"title": "Keamanan",
+				"desc": "SOP packing dan handling untuk meminimalkan risiko kerusakan barang selama proses pindahan."
+			},
+			{
+				"title": "Fleksibel",
+				"desc": "Jadwal jasa pindah menyesuaikan kebutuhan Anda, termasuk akhir pekan dan malam hari."
+			}
+		]
+	},
+	"testimonials": {
+		"eyebrow": "Testimoni",
+		"title": "Apa Kata Pelanggan Jasa Pindah Indo Mover",
+		"ratingSuffix": "berdasarkan {count} ulasan Google",
+		"viewAll": "Lihat semua ulasan di Google",
+		"fallbackNote": "Ulasan otomatis akan tampil setelah deploy.",
+		"items": [
+			{
+				"name": "Rini A.",
+				"location": "Tembalang, Semarang",
+				"quote": "Pindahan ke rumah baru jadi tidak stress. Tim datang tepat waktu, packing rapi, dan tidak ada barang yang rusak."
+			},
+			{
+				"name": "Budi S.",
+				"location": "Banyumanik, Semarang",
+				"quote": "Saya pakai jasa Indo Mover untuk pindahan kantor. Cepat, profesional, dan harga sesuai dengan kualitasnya."
+			},
+			{
+				"name": "Maria L.",
+				"location": "Semarang Barat",
+				"quote": "Komunikasi enak, survey gratis, dan tim sangat sopan. Recommended untuk pindahan keluarga."
+			}
+		]
+	},
+	"faq": {
+		"eyebrow": "FAQ",
+		"title": "Pertanyaan yang Sering Ditanyakan",
+		"items": [
+			{
+				"q": "Berapa biaya jasa pindah rumah di Semarang?",
+				"a": "Biaya jasa pindah tergantung volume barang, jarak tempuh, dan layanan tambahan seperti packing atau bongkar-muat. Indo Mover menyediakan survey gratis di lokasi untuk memberikan estimasi yang akurat sebelum pindahan."
+			},
+			{
+				"q": "Area mana saja yang dilayani Indo Mover?",
+				"a": "Kami melayani jasa pindah rumah, kantor, dan apartemen di seluruh Semarang dan sekitarnya, serta jasa pindah antar kota di Jawa Tengah dan luar provinsi."
+			},
+			{
+				"q": "Apakah barang diasuransikan selama proses pindahan?",
+				"a": "Asuransi tersedia sebagai opsi tambahan untuk barang bernilai tinggi. Detailnya bisa didiskusikan saat sesi survey."
+			},
+			{
+				"q": "Berapa lama proses pindahan rumah biasanya?",
+				"a": "Umumnya 4–8 jam untuk jasa pindah rumah dalam kota Semarang, tergantung volume barang dan akses lokasi. Untuk pindah antar kota durasinya menyesuaikan rute."
+			},
+			{
+				"q": "Apakah Indo Mover melayani jasa pindah kantor?",
+				"a": "Ya. Kami memiliki tim khusus untuk jasa pindah kantor, toko, dan gudang dengan jadwal di luar jam operasional agar tidak mengganggu bisnis Anda."
+			},
+			{
+				"q": "Bagaimana cara pesan jasa pindah Indo Mover?",
+				"a": "Cukup hubungi kami via WhatsApp. Tim akan menjadwalkan survey gratis di lokasi Anda dan memberikan penawaran sesuai kebutuhan pindahan."
+			}
+		]
+	},
+	"cta": {
+		"title": "Butuh Jasa Pindah di Semarang? Mulai dari Sini",
+		"subtitle": "Konsultasi dan survey gratis untuk jasa pindah rumah, kantor, atau apartemen Anda. Hubungi kami via WhatsApp untuk penawaran cepat.",
+		"button": "Chat WhatsApp Sekarang",
+		"waMessage": "Halo Indo Mover, saya ingin minta penawaran untuk jasa pindah."
+	},
+	"footer": {
+		"tagline": "Jasa pindah profesional di Semarang—pindah rumah, kantor, gudang, dan apartemen.",
+		"rights": "Hak cipta dilindungi."
+	}
 }

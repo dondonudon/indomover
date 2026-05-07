@@ -10,7 +10,10 @@
     "postbuild": "node scripts/prerender.mjs",
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
-    "fetch:reviews": "node scripts/fetch-reviews.mjs"
+    "fetch:reviews": "node scripts/fetch-reviews.mjs",
+    "lint": "biome lint --write ./src",
+    "format": "biome format --write ./src",
+    "check": "biome check --write ./src"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
@@ -20,6 +23,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.14",
     "@tailwindcss/vite": "^4.0.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",

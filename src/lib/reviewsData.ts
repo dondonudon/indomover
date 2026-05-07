@@ -6,38 +6,38 @@
 import raw from "../data/reviews.json";
 
 export type GoogleReviewItem = {
-  name: string;
-  photo: string | null;
-  profileUri: string | null;
-  rating: number;
-  relativeTime: string | null;
-  publishTime: string | null;
-  textEn: string | null;
-  textId: string | null;
-  sourceUri: string | null;
+	name: string;
+	photo: string | null;
+	profileUri: string | null;
+	rating: number;
+	relativeTime: string | null;
+	publishTime: string | null;
+	textEn: string | null;
+	textId: string | null;
+	sourceUri: string | null;
 };
 
 export type ReviewsData = {
-  fetchedAt: string | null;
-  rating: number | null;
-  totalReviews: number | null;
-  googleMapsUri: string | null;
-  address: string | null;
-  addressParts: {
-    streetAddress: string | null;
-    locality: string | null;
-    region: string | null;
-    postalCode: string | null;
-    country: string | null;
-  } | null;
-  geo: {
-    latitude: number;
-    longitude: number;
-  } | null;
-  phone: string | null;
-  website: string | null;
-  openingHours: string[] | null;
-  items: GoogleReviewItem[];
+	fetchedAt: string | null;
+	rating: number | null;
+	totalReviews: number | null;
+	googleMapsUri: string | null;
+	address: string | null;
+	addressParts: {
+		streetAddress: string | null;
+		locality: string | null;
+		region: string | null;
+		postalCode: string | null;
+		country: string | null;
+	} | null;
+	geo: {
+		latitude: number;
+		longitude: number;
+	} | null;
+	phone: string | null;
+	website: string | null;
+	openingHours: string[] | null;
+	items: GoogleReviewItem[];
 };
 
 export const reviewsData = raw as unknown as ReviewsData;
