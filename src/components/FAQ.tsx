@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 export default function FAQ() {
-	const { t } = useLanguage();
+	const { t, lang } = useLanguage();
 
 	return (
 		<section id="faq" className="bg-white py-20 sm:py-28">
@@ -18,6 +18,7 @@ export default function FAQ() {
 				</div>
 
 				<motion.ul
+					key={lang}
 					initial="hidden"
 					whileInView="show"
 					viewport={{ once: true, margin: "-80px" }}
