@@ -61,7 +61,7 @@ export default function Navbar() {
 					<span className={`text-lg transition-colors ${logoText}`}>Indo Mover</span>
 				</a>
 
-				<nav className="hidden items-center gap-1 md:flex" aria-label="Main">
+				<nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
 					{links.map((l) => (
 						<a
 							key={l.id}
@@ -101,7 +101,7 @@ export default function Navbar() {
 						href={buildWaLink(t.hero.waMessage)}
 						target="_blank"
 						rel="noreferrer noopener"
-						className="hidden rounded-full bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 md:inline-flex"
+						className="hidden rounded-full bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 lg:inline-flex"
 					>
 						{t.nav.cta}
 					</a>
@@ -110,7 +110,7 @@ export default function Navbar() {
 						type="button"
 						onClick={() => setOpen((v) => !v)}
 						aria-label="Toggle menu"
-						className={`grid h-10 w-10 place-items-center rounded-full border transition-colors md:hidden ${mobileBtn}`}
+						className={`grid h-10 w-10 place-items-center rounded-full border transition-colors lg:hidden ${mobileBtn}`}
 					>
 						{open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
 					</button>
@@ -118,8 +118,8 @@ export default function Navbar() {
 			</div>
 
 			{open && (
-				<div className="border-t border-ink-200 bg-white md:hidden">
-					<nav className="flex flex-col gap-1 px-4 py-3" aria-label="Mobile">
+				<div className="border-t border-ink-200 bg-white lg:hidden">
+					<nav className="flex flex-col items-center gap-1 px-4 py-3" aria-label="Mobile">
 						{links.map((l) => (
 							<a
 								key={l.id}
