@@ -79,8 +79,8 @@ export default function JsonLd() {
 			{
 				"@type": "OpeningHoursSpecification",
 				dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-				opens: "08:00",
-				closes: "20:00",
+				opens: "00:00",
+				closes: "23:59",
 			},
 		],
 		aggregateRating,

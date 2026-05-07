@@ -44,7 +44,7 @@ export default function Services() {
 								}}
 								className="group relative flex flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-ink-200 transition-shadow hover:shadow-lg"
 							>
-								<div className="aspect-[16/10] w-full overflow-hidden bg-ink-100">
+								<div className="aspect-16/10 w-full overflow-hidden bg-ink-100">
 									<img
 										src={item.image}
 										alt={item.title}

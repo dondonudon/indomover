@@ -40,7 +40,7 @@ export default function ServiceModal({ service, onClose }: Props) {
 					role="dialog"
 					aria-modal="true"
 					aria-labelledby="service-modal-title"
-					className="fixed inset-0 z-[60] flex items-end justify-center sm:items-center"
+					className="fixed inset-0 z-60 flex items-end justify-center sm:items-center"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
@@ -59,7 +59,7 @@ export default function ServiceModal({ service, onClose }: Props) {
 						transition={{ duration: 0.25, ease: "easeOut" }}
 						className="relative z-10 m-3 w-full max-w-2xl overflow-hidden rounded-3xl bg-white shadow-2xl"
 					>
-						<div className="relative aspect-[16/9] w-full overflow-hidden bg-ink-100">
+						<div className="relative aspect-video w-full overflow-hidden bg-ink-100">
 							<img src={service.image} alt={service.title} className="h-full w-full object-cover" />
 							<button
 								type="button"

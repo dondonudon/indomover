@@ -50,7 +50,7 @@ export default function About() {
 						/>
 					</div>
 					<div className="absolute -bottom-6 -left-6 hidden rounded-2xl bg-white p-5 shadow-lg ring-1 ring-ink-200 sm:block">
-						<p className="text-3xl font-extrabold text-brand-600">500+</p>
+						<p className="text-3xl font-extrabold text-brand-600">100+</p>
 						<p className="text-sm font-medium text-ink-700">{t.about.eyebrow}</p>
 					</div>
 				</motion.div>

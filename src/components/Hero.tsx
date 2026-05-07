@@ -14,7 +14,7 @@ export default function Hero() {
 				aria-hidden
 			/>
 			<div
-				className="absolute inset-0 -z-10 bg-gradient-to-br from-ink-900 via-ink-900/80 to-brand-900/70"
+				className="absolute inset-0 -z-10 bg-linear-to-br from-ink-900 via-ink-900/80 to-brand-900/70"
 				aria-hidden
 			/>
 

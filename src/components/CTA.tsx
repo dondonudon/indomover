@@ -9,10 +9,10 @@ export default function CTA() {
 	return (
 		<section
 			id="kontak"
-			className="relative isolate overflow-hidden bg-gradient-to-br from-brand-700 via-brand-600 to-brand-500 py-20 text-white sm:py-24"
+			className="relative isolate overflow-hidden bg-linear-to-br from-brand-700 via-brand-600 to-brand-500 py-20 text-white sm:py-24"
 		>
 			<div
-				className="absolute inset-0 -z-10 opacity-20 [background-image:radial-gradient(circle_at_30%_20%,white_1px,transparent_1px)] [background-size:24px_24px]"
+				className="absolute inset-0 -z-10 opacity-20 bg-[radial-gradient(circle_at_30%_20%,white_1px,transparent_1px)] bg-size-[24px_24px]"
 				aria-hidden
 			/>
 			<motion.div
