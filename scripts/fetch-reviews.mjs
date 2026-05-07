@@ -3,11 +3,34 @@
 // src/data/reviews.json. Runs as `prebuild`. Fails soft when env
 // vars are missing so local `npm run build` still works.
 
-import { writeFile, mkdir } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// Load .env from the project root so the script works
+// when called directly via `npm run fetch:reviews` without a shell that
+// pre-exports the variables.
+for (const envFile of [".env"]) {
+  const envPath = resolve(__dirname, "..", envFile);
+  try {
+    const lines = readFileSync(envPath, "utf8").split("\n");
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith("#")) continue;
+      const eq = trimmed.indexOf("=");
+      if (eq === -1) continue;
+      const key = trimmed.slice(0, eq).trim();
+      const val = trimmed.slice(eq + 1).trim().replace(/^["']|["']$/g, "");
+      if (!(key in process.env)) process.env[key] = val;
+    }
+    break; // stop after first file found
+  } catch {
+    // file doesn't exist — try the next one
+  }
+}
 const OUT_PATH = resolve(__dirname, "../src/data/reviews.json");
 const FIELD_MASK = [
   "id",
@@ -164,7 +187,7 @@ async function main() {
       return;
     } catch {
       const doc = emptyDoc("missing-env-vars");
-      await writeFile(OUT_PATH, JSON.stringify(doc, null, 2) + "\n", "utf8");
+      await writeFile(OUT_PATH, `${JSON.stringify(doc, null, 2)}\n`, "utf8");
       console.warn("[reviews] Wrote empty placeholder reviews.json.");
       return;
     }
@@ -177,7 +200,7 @@ async function main() {
     ]);
     const doc = shape(enPlace, idPlace);
     await mkdir(dirname(OUT_PATH), { recursive: true });
-    await writeFile(OUT_PATH, JSON.stringify(doc, null, 2) + "\n", "utf8");
+    await writeFile(OUT_PATH, `${JSON.stringify(doc, null, 2)}\n`, "utf8");
     console.log(
       `[reviews] Wrote ${doc.items.length} unique review(s) (en+id merged), rating ${doc.rating}, ${doc.totalReviews} total.`,
     );
