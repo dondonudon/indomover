@@ -323,15 +323,6 @@ indomover/
 
 ---
 
-## Open TODOs
-
-- [ ] Confirm hero / about / service photos look good at production resolution; some downloaded WP images are sub-1000px.
-- [ ] Add a real `og-image.jpg` to `public/` (referenced by `index.html`).
-- [ ] Optional hardening: add a pre-commit hook (e.g. lint-staged) that resets `src/data/reviews.json` to the empty placeholder on commit, so a populated copy can never sneak in.
-- [ ] After first deploy: submit `https://indo-mover.com/sitemap.xml` to Google Search Console.
-- [ ] After first deploy: validate JSON-LD with [Schema.org Validator](https://validator.schema.org/) and Google's [Rich Results Test](https://search.google.com/test/rich-results).
-- [ ] After first deploy: point `indo-mover.com` DNS to Vercel.
-- [ ] After first deploy: enable Analytics in the Vercel dashboard (the `<Analytics />` component is already wired in `src/App.tsx`).
 
 ## Out of scope
 

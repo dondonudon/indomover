@@ -1,0 +1,8 @@
+#!/bin/sh
+# Reset src/data/reviews.json to the empty placeholder if it was accidentally staged.
+# Populated reviews (phone, address, real ratings) must never enter the repo.
+if git diff --cached --name-only | grep -q "src/data/reviews.json"; then
+  echo "[pre-commit] Resetting src/data/reviews.json to empty placeholder…"
+  git checkout HEAD -- src/data/reviews.json
+  git add src/data/reviews.json
+fi
