@@ -1,4 +1,3 @@
-import { Truck } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Footer() {
@@ -10,8 +9,12 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
           <div className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-500 text-white">
-              <Truck className="h-5 w-5" aria-hidden />
+            <span className="grid h-10 w-10 place-items-center rounded-xl bg-white shadow-sm ring-1 ring-white/10">
+              <img
+                src="/images/indo-mover-logo-only.png"
+                alt=""
+                className="h-8 w-8 object-contain"
+              />
             </span>
             <span className="text-lg font-bold text-white">Indo Mover</span>
           </div>
