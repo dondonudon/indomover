@@ -46,6 +46,27 @@ export default function CTA() {
 					)}
 				</div>
 			</motion.div>
+
+			<motion.div
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, margin: "-80px" }}
+				transition={{ duration: 0.5, delay: 0.15 }}
+				className="mx-auto mt-14 w-full max-w-5xl px-4 sm:px-6 lg:px-8"
+			>
+				<div className="overflow-hidden rounded-2xl shadow-xl ring-2 ring-white/20">
+					<iframe
+						title="Lokasi Indo Mover Semarang"
+						src="https://maps.google.com/maps?q=Indo+Mover+Jasa+Pindah+Rumah+Kantor+Gudang+Apartemen+Semarang&ll=-6.9707083,110.4327231&z=17&output=embed"
+						width="100%"
+						height="360"
+						style={{ border: 0 }}
+						allowFullScreen
+						loading="lazy"
+						referrerPolicy="no-referrer-when-downgrade"
+					/>
+				</div>
+			</motion.div>
 		</section>
 	);
 }
