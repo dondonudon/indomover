@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0f172a" />
 
+    <!-- Preload LCP hero image so the browser fetches it immediately -->
+    <link rel="preload" as="image" href="/images/service-carrying.jpg" fetchpriority="high" />
+
     <title>Jasa Pindah Rumah & Kantor Semarang | Indo Mover</title>
     <meta
       name="description"
@@ -39,19 +42,31 @@
     />
     <meta property="og:url" content="https://indo-mover.com/" />
     <meta property="og:image" content="https://indo-mover.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Jasa Pindah Rumah & Kantor Semarang | Indo Mover" />
     <meta
       name="twitter:description"
       content="Jasa pindah profesional di Semarang—rumah, kantor, gudang, apartemen. Konsultasi gratis via WhatsApp."
     />
+    <meta name="twitter:image" content="https://indo-mover.com/og-image.jpg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Load font CSS asynchronously to avoid render-blocking -->
     <link
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
