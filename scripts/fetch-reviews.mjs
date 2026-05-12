@@ -50,6 +50,7 @@ const FIELD_MASK = [
 
 const PLACE_ID = process.env.GOOGLE_PLACE_ID;
 const API_KEY = process.env.GOOGLE_PLACES_KEY;
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL ?? null;
 
 function emptyDoc(reason) {
   return {
@@ -57,6 +58,7 @@ function emptyDoc(reason) {
     rating: null,
     totalReviews: null,
     googleMapsUri: null,
+    email: CONTACT_EMAIL,
     items: [],
     skipped: reason ?? null,
   };
@@ -166,6 +168,7 @@ function shape(enPlace, idPlace) {
     phone:
       enPlace.internationalPhoneNumber ?? enPlace.nationalPhoneNumber ?? null,
     website: enPlace.websiteUri ?? null,
+    email: CONTACT_EMAIL,
     openingHours: enPlace.regularOpeningHours?.weekdayDescriptions ?? null,
     items,
   };
@@ -182,8 +185,14 @@ async function main() {
       const { readFile } = await import("node:fs/promises");
       const existing = await readFile(OUT_PATH, "utf8");
       console.warn("[reviews] Keeping existing src/data/reviews.json.");
-      // Touch only if file is missing — re-emit existing untouched.
-      JSON.parse(existing);
+      const parsed = JSON.parse(existing);
+      // Patch email in-place if the env var is set, so it stays current
+      // even when the Places API fetch is skipped.
+      if (CONTACT_EMAIL && parsed.email !== CONTACT_EMAIL) {
+        parsed.email = CONTACT_EMAIL;
+        await writeFile(OUT_PATH, `${JSON.stringify(parsed, null, 2)}\n`, "utf8");
+        console.warn("[reviews] Patched email in existing reviews.json.");
+      }
       return;
     } catch {
       const doc = emptyDoc("missing-env-vars");

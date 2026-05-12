@@ -36,6 +36,7 @@ export type ReviewsData = {
 	} | null;
 	phone: string | null;
 	website: string | null;
+	email: string | null;
 	openingHours: string[] | null;
 	items: GoogleReviewItem[];
 };

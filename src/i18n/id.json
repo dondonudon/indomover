@@ -170,7 +170,9 @@
 		"title": "Butuh Jasa Pindah di Semarang? Mulai dari Sini",
 		"subtitle": "Konsultasi dan survey gratis untuk jasa pindah rumah, kantor, atau apartemen Anda. Hubungi kami via WhatsApp untuk penawaran cepat.",
 		"button": "Chat WhatsApp Sekarang",
-		"waMessage": "Halo Indo Mover, saya ingin minta penawaran untuk jasa pindah."
+		"waMessage": "Halo Indo Mover, saya ingin minta penawaran untuk jasa pindah.",
+		"emailButton": "Kirim Email",
+		"emailSubject": "Pertanyaan Jasa Pindah — Indo Mover"
 	},
 	"footer": {
 		"tagline": "Jasa pindah profesional di Semarang—pindah rumah, kantor, gudang, dan apartemen.",

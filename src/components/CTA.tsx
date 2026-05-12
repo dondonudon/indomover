@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { EMAIL_AVAILABLE, buildMailtoLink } from "../lib/email";
 import { buildWaLink } from "../lib/whatsapp";
 
 export default function CTA() {
@@ -24,15 +25,26 @@ export default function CTA() {
 			>
 				<h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{t.cta.title}</h2>
 				<p className="mt-4 max-w-2xl text-lg text-white/90">{t.cta.subtitle}</p>
-				<a
-					href={buildWaLink(t.cta.waMessage)}
-					target="_blank"
-					rel="noreferrer noopener"
-					className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-brand-700 shadow-lg transition-transform hover:-translate-y-0.5 hover:bg-brand-50"
-				>
-					<MessageCircle className="h-5 w-5" aria-hidden />
-					{t.cta.button}
-				</a>
+				<div className="mt-8 flex flex-wrap justify-center gap-4">
+					<a
+						href={buildWaLink(t.cta.waMessage)}
+						target="_blank"
+						rel="noreferrer noopener"
+						className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-brand-700 shadow-lg transition-transform hover:-translate-y-0.5 hover:bg-brand-50"
+					>
+						<MessageCircle className="h-5 w-5" aria-hidden />
+						{t.cta.button}
+					</a>
+					{EMAIL_AVAILABLE && (
+						<a
+							href={buildMailtoLink(t.cta.emailSubject)}
+							className="inline-flex items-center gap-2 rounded-full border-2 border-white/70 px-7 py-3.5 text-base font-semibold text-white transition-transform hover:-translate-y-0.5 hover:border-white hover:bg-white/10"
+						>
+							<Mail className="h-5 w-5" aria-hidden />
+							{t.cta.emailButton}
+						</a>
+					)}
+				</div>
 			</motion.div>
 		</section>
 	);

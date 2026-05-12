@@ -1,4 +1,5 @@
 import { useLanguage } from "../i18n/LanguageContext";
+import { EMAIL_ADDRESS, EMAIL_AVAILABLE } from "../lib/email";
 
 export default function Footer() {
 	const { t } = useLanguage();
@@ -52,6 +53,13 @@ export default function Footer() {
 								{t.nav.cta}
 							</a>
 						</li>
+						{EMAIL_AVAILABLE && (
+							<li>
+								<a href={`mailto:${EMAIL_ADDRESS}`} className="hover:text-white">
+									{EMAIL_ADDRESS}
+								</a>
+							</li>
+						)}
 					</ul>
 				</nav>
 			</div>

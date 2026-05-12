@@ -170,7 +170,9 @@
 		"title": "Need a Mover in Semarang? Start Here",
 		"subtitle": "Free consultation and survey for your home, office, or apartment move. Reach out on WhatsApp for a quick quote.",
 		"button": "Chat on WhatsApp",
-		"waMessage": "Hi Indo Mover, I'd like a quote for my move."
+		"waMessage": "Hi Indo Mover, I'd like a quote for my move.",
+		"emailButton": "Send an Email",
+		"emailSubject": "Moving Service Inquiry — Indo Mover"
 	},
 	"footer": {
 		"tagline": "Professional moving services in Semarang—home, office, warehouse, and apartment relocations.",
