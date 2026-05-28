@@ -1,6 +1,6 @@
 # Indo Mover — React SPA
 
-A static, single-page React rebuild of [indo-mover.com](https://indo-mover.com/) — a Semarang-based moving services portfolio. The original site is WordPress; this version is a Vite + React SPA designed to deploy free on Vercel.
+A React rebuild of [indo-mover.com](https://indo-mover.com/) — a Semarang-based moving services portfolio. Originally WordPress; this version is Vite + React + SSR prerendering deployed on Vercel free tier.
 
 This document is the single source of truth for what's been built and why. Update it when decisions change.
 
@@ -8,14 +8,14 @@ This document is the single source of truth for what's been built and why. Updat
 
 ## Stack
 
-- **Vite 6 + React 18 + TypeScript** — single static bundle, ~310 KB JS / 100 KB gzipped.
+- **Vite 6 + React 18 + TypeScript** — ~310 KB JS / 100 KB gzipped.
 - **Tailwind CSS v4** via `@tailwindcss/vite`.
-- **Framer Motion** for section reveals and the service modal transition.
+- **react-router-dom v7** — `BrowserRouter` client-side, `StaticRouter` (from `react-router`) for SSR.
+- **Framer Motion** for section reveals.
 - **lucide-react** for icons.
-- **No router** — single page with anchor scrolling. `react-router-dom` was deliberately not added.
 - **Hand-rolled i18n** (`LanguageContext` + two JSON dicts). No `react-i18next`.
-- **Static prerender** — `postbuild` SSR-renders the React tree once and injects ~66 KB of HTML into `dist/index.html` so crawlers see fully-rendered content without waiting for hydration.
-- **`@vercel/analytics`** — `<Analytics />` mounted at the App root; auto-detects the deployment, no-ops in local dev. Stats land in the Vercel project's Analytics tab.
+- **SSR prerender** — `postbuild` renders all 7 routes to separate `dist/<slug>/index.html` files; crawlers get fully-rendered HTML with per-route `<title>`, meta, og tags, and canonical.
+- **`@vercel/analytics`** — `<Analytics />` at App root; no-ops in local dev.
 
 ---
 
@@ -24,56 +24,85 @@ This document is the single source of truth for what's been built and why. Updat
 | # | Decision | Choice | Notes |
 |---|---|---|---|
 | 1 | Design fidelity | Modernize freely | Same sections + copy as the WP site, redesigned visuals. |
-| 2 | Routing | Single page, anchor scroll | No per-service routes. "Pelajari Lebih Lanjut" opens a modal. |
+| 2 | Routing | react-router-dom v7, multi-page | Home `/` + 6 landing pages (see below). In-page section links use anchor scroll. |
 | 3 | Languages | Indonesian + English | Default is **always Indonesian**. EN is opt-in via the toggle and persisted in `localStorage`. |
 | 4 | Contact | WhatsApp deep links only | All CTAs build `wa.me/<number>?text=...` links. No backend form. |
 | 5 | Hosting | Vercel free tier (Hobby) | Static SPA + 1 edge function for cron. |
 | 6 | Reviews | **Build-time bake** from Google Places API (New) | Fetched during `prebuild`, written to `src/data/reviews.json`, imported into the bundle. **No API key in the client.** Refreshed monthly by Vercel Cron. |
-| 7 | SEO | Keyword-rich copy + JSON-LD + static prerender | Targets "jasa pindah", "jasa pindah rumah", "jasa pindah Semarang", "jasa pindah kantor" + EN equivalents. JSON-LD MovingCompany / FAQPage / WebSite schemas use real address, phone, geo, and aggregateRating from the Places API. |
+| 7 | SEO | Multi-page SSR + JSON-LD + keyword copy | Targets "jasa pindah semarang" and long-tail variants. See `SEO_PLAN.md` for full details. |
+
+---
+
+## Pages
+
+| Route | Target keyword | Pre-rendered HTML |
+|---|---|---|
+| `/` | jasa pindah semarang | ~79 KB |
+| `/jasa-pindah-rumah-semarang/` | jasa pindah rumah semarang | ~60 KB |
+| `/jasa-pindah-kantor-semarang/` | jasa pindah kantor semarang | ~58 KB |
+| `/jasa-pindah-kost-semarang/` | jasa pindah kost semarang | ~56 KB |
+| `/jasa-pindah-murah-semarang/` | jasa pindah murah semarang | ~57 KB |
+| `/jasa-pindah-antar-kota/` | jasa pindah antar kota semarang | ~57 KB |
+| `/jasa-pindah-apartemen-semarang/` | jasa pindah apartemen semarang | ~57 KB |
+
+All landing pages share the same component template (`LandingPage.tsx`) and get unique page-specific content from `src/data/landingPages.ts`.
 
 ---
 
 ## Architecture
 
-### Sections (in render order)
+### Home page sections (render order)
 
-`src/App.tsx` composes the page top-to-bottom:
+`src/pages/HomePage.tsx`:
 
 1. `Navbar` — sticky, translucent on scroll, scroll-spy active link, ID/EN toggle, WhatsApp CTA.
 2. `Hero` — full-viewport, 2 CTAs (WhatsApp + scroll-to-services).
-3. `About` — 2-column copy + image, 4 highlight bullets, "500+" stat card.
+3. `About` — 2-column copy + image, 6 highlight bullets including district coverage.
 4. `Services` — 4 cards in a responsive grid, each opens `ServiceModal`.
-5. `WhyUs` — 3 feature blocks.
-6. `Testimonials` — 5 real Google reviews when present, fallback to placeholder testimonials in i18n JSON when not.
-7. `FAQ` — 6 keyword-rich Q&A entries using native `<details>`/`<summary>` (indexed by Google even when collapsed).
-8. `CTA` — full-width band, single WhatsApp button.
-9. `Footer` — copyright, repeated nav, location.
+5. `ServicePageLinks` — 6-item grid linking to each landing page (body-level internal links).
+6. `Fleet` — responsive table: Pick-Up / CDE / CDD / Fuso with capacity and best-for columns.
+7. `WhyUs` — 3 feature blocks.
+8. `HowItWorks` — 4-step numbered process with connector lines on desktop.
+9. `Testimonials` — real Google reviews (min rating 5, min 60 chars), falls back to i18n placeholders.
+10. `FAQ` — 10 Q&A items (pricing range, fleet types, districts, inter-city) with `FAQPage` JSON-LD.
+11. `CTA` — full-width band with WhatsApp button + Google Maps iframe.
+12. `ServiceArea` — tag-pill grid of 16 Semarang districts, 5 nearby cities, 8 inter-city routes.
+13. `Footer` — links to all 6 landing pages + section anchors (uses `useLocation()` for cross-page anchors).
 
-Plus, mounted at the root and rendering `null` to the DOM:
-- `SeoHead` — useEffect updates `<title>`, `<meta description>`, OG locale, canonical, and hreflang on language change.
-- `JsonLd` — emits three `<script type="application/ld+json">` tags (`MovingCompany`, `FAQPage`, `WebSite`) inside the React tree so they end up in the SSR'd HTML.
-- `<Analytics />` from `@vercel/analytics/react` — Vercel's first-party page-view tracker. No config needed; the script auto-detects the deployment domain. Local dev is a no-op.
+Mounted at root (render null): `SeoHead`, `JsonLd`, `Analytics`, `WhatsAppButton`, `ScrollToTop`.
 
-Floating: `WhatsAppButton` (bottom-right FAB) + `ScrollToTop` (appears after 400px scroll).
+### Landing page sections (render order)
+
+`src/pages/LandingPage.tsx`:
+
+`LandingHero` → `LandingIntro` → `Services` → `Fleet` → `WhyUs` → `HowItWorks` → `FAQ` (page-specific items) → `RelatedServices` (5 sibling page links) → `CTA` → `ServiceArea`
+
+Each landing page emits 3 JSON-LD schemas: `FAQPage`, `Service`, `BreadcrumbList`.
 
 ### i18n
 
 - `src/i18n/LanguageContext.tsx` — provider + `useLanguage()` hook returning `{ lang, setLang, t }`.
-- `src/i18n/id.json` (default) and `src/i18n/en.json` (opt-in) — keyed identically.
-- Initial language: localStorage → `id` (browser detection was deliberately removed; English needs an explicit user choice).
+- `src/i18n/id.json` (default) and `src/i18n/en.json` (opt-in) — must be structurally identical; TypeScript infers the `Dict` type from `id.json`.
+- Initial language: localStorage → `id`. English requires explicit user choice.
 - Side effects: `<html lang>` and `localStorage["indomover.lang"]` stay in sync.
 
 ### Scroll spy
 
-`src/lib/useScrollSpy.ts` — IntersectionObserver hook. Navbar passes the section IDs (`beranda`, `tentang`, `layanan`, `mengapa`, `testimoni`, `kontak`); the active link gets a brand-tinted color.
+`src/lib/useScrollSpy.ts` — IntersectionObserver hook. Navbar passes section IDs (`beranda`, `tentang`, `layanan`, `mengapa`, `testimoni`, `kontak`); active link gets a brand-tinted color.
 
 ### WhatsApp links
 
-`src/lib/whatsapp.ts` derives `WA_NUMBER` from `data.phone` in `src/data/reviews.json` (the Places API returns the listed phone, which the helper normalizes — strips non-digits, converts a leading `0` to `62`). **No phone is hardcoded anywhere.** If reviews.json has no phone (empty placeholder), `WA_NUMBER` is the empty string; `wa.me/` links still open WhatsApp but without a specific recipient. Each section builds its link via `buildWaLink(message)` with a context-specific Indonesian or English message.
+`src/lib/whatsapp.ts` derives `WA_NUMBER` from `data.phone` in `src/data/reviews.json` (normalises leading `0` → `62`). No phone is hardcoded. Each section builds its own `buildWaLink(message)` with a context-specific message.
+
+### Internal links
+
+- **Home → landing pages**: `ServicePageLinks` (body) + footer services column = 2 links per landing page.
+- **Landing → sibling landing pages**: `RelatedServices` (body) + footer services column = 2 links to every sibling.
+- **Landing → home**: Navbar logo + nav links.
 
 ### Service modal
 
-`src/components/ServiceModal.tsx` — driven by the `services.items[].slug`, `image`, `bullets` fields in the i18n JSON. ESC closes, click-outside closes, body scroll locked while open. Each modal has its own WhatsApp CTA whose message names the specific service.
+`src/components/ServiceModal.tsx` — driven by `services.items[].slug`, `image`, `bullets` in i18n JSON. ESC closes, click-outside closes, body scroll locked while open.
 
 ### Reviews pipeline
 
@@ -100,43 +129,33 @@ Floating: `WhatsAppButton` (bottom-right FAB) + `ScrollToTop` (appears after 400
    - falls back to i18n testimonials when items is empty
 ```
 
-**Why two API calls?** The Places API caps `reviews` at 5 per response. Calling once with `languageCode=en` and once with `languageCode=id` typically returns overlapping-but-not-identical sets, doubling the effective pool to 6–10 unique reviews. The fetcher dedupes by the API's review resource path (`r.name`).
+**Why two API calls?** The Places API caps `reviews` at 5 per response. Two calls (`languageCode=en` + `languageCode=id`) return overlapping-but-not-identical sets, giving 6–10 unique reviews. Deduped by `r.name`.
 
-**Translations.** Each review carries both `textEn` and `textId`. From the EN call we get the English version (translated if needed) plus `originalText` (source language). From the ID call we get the Indonesian version. Whichever we have, the component picks based on the current UI language.
-
-**Quality filter.** Of the merged pool, `Testimonials.tsx` keeps only reviews with `rating === 5` and at least 60 chars of text, sorts by length descending, and renders the top 3. This guarantees a balanced 3-col grid and prevents one-word reviews ("Good 👍") from taking a slot.
-
-**reviews.json convention.** The committed `src/data/reviews.json` is an empty placeholder (all fields null, items: []) — **the public repo carries no phone, address, or geo data**. The prebuild step overwrites it with real data on every build, but you should never commit those changes.
+**reviews.json convention.** The committed file is an empty placeholder — no phone, address, or geo data in the repo. The prebuild overwrites it with real data on every build. Never commit a populated copy.
 
 | Situation | What's in reviews.json |
 |---|---|
-| Fresh clone, no env vars set | Empty placeholder (committed) — site renders with i18n fallback testimonials, WhatsApp links go to `wa.me/` (no recipient) |
-| Local with `npm run fetch:reviews` after setting env vars | Populated with real data — full preview of production behavior |
-| Vercel build (env vars set) | Populated on the build runner each deploy — populated copy is what ships, but it never re-enters the repo |
+| Fresh clone, no env vars | Empty placeholder — fallback i18n testimonials render, WhatsApp links go to `wa.me/` (no recipient) |
+| Local after `npm run fetch:reviews` | Populated — mirrors production |
+| Vercel build (env vars set) | Populated on build runner; never re-enters the repo |
 
-If you accidentally stage a populated `reviews.json`, run `git checkout -- src/data/reviews.json` to revert.
+If you accidentally stage a populated `reviews.json`: `git checkout -- src/data/reviews.json`.
 
 ### SEO pipeline
 
 ```
-                 prebuild                    build                postbuild
-                    │                          │                      │
-                    ▼                          ▼                      ▼
-          fetch-reviews.mjs            tsc -b && vite build      prerender.mjs
-          → src/data/reviews.json      → dist/{index.html,        ↳ vite build --ssr
-            (rating, phone,              assets/*}                ↳ render() → HTML
-             address, items)                                      ↳ inject into
-                                                                    dist/index.html
+         prebuild                    build                    postbuild
+            │                          │                          │
+            ▼                          ▼                          ▼
+  fetch-reviews.mjs            tsc -b && vite build          prerender.mjs
+  → src/data/reviews.json      → dist/{index.html,            ↳ vite build --ssr
+    (rating, phone,               assets/*}                   ↳ render(url) for each route
+     address, items)                                          ↳ patchHead() per route
+                                                              ↳ write dist/<slug>/index.html
+                                                              ↳ update sitemap lastmod
 ```
 
-After the postbuild step, `dist/index.html` is ~66 KB and contains:
-- All section copy as visible HTML (Google indexes without JS render).
-- An H1 + H2s carrying primary keywords ("Jasa Pindah Rumah & Kantor di Semarang", etc.).
-- Three JSON-LD `<script>` blocks: `MovingCompany` (with aggregateRating, geo, structured `PostalAddress`, telephone, opening hours — all data-driven from `reviews.json`, so empty fields are simply omitted instead of shipping fake values), `FAQPage` (six Q&As), `WebSite`.
-- Per-language `<title>` and meta tags applied via `SeoHead` after hydration; the static defaults in `index.html` already match the Indonesian-default render.
-- Canonical + hreflang (id / en / x-default).
-
-When the user toggles language, `SeoHead` updates `document.title`, `<meta name="description">`, `og:locale`, and `<link rel="canonical">` to the EN variants.
+`patchHead()` in `prerender.mjs` replaces `<title>`, meta description, og:title, og:description, og:url, and canonical in each HTML file using regex — so every pre-rendered page has correct, unique head tags before any JS runs.
 
 ### Cron refresh
 
@@ -153,117 +172,95 @@ VERCEL_DEPLOY_HOOK_URL
 Fresh production build → prebuild fetches reviews → deploys
 ```
 
-Schedule: `0 3 1 * *` — 03:00 UTC on day 1 of each month (= 10:00 WIB on the 1st). 12 rebuilds per year is plenty for a stable business listing whose Google reviews change slowly. To bump it up later, edit the `crons` entry in `vercel.json`.
-
-`vercel.json` has the cron entry. The rewrite excludes `/api/` so the function is reachable.
+Schedule: `0 3 1 * *` — 03:00 UTC on the 1st of each month (= 10:00 WIB). Monthly is well within Vercel Hobby cron limits. Edit `vercel.json` to change cadence.
 
 ---
 
 ## Environment variables
 
-There are **four** env vars in play. Copy `.env.example` to `.env` for local dev. The same `.env.example` also documents which ones go into Vercel and where.
-
 | # | Var | Used by | Set where | Required? |
 |---|---|---|---|---|
-| 1 | `GOOGLE_PLACE_ID` | `scripts/fetch-reviews.mjs` (build-time) | Local `.env` + Vercel "Environment Variables" → Production + Preview | Yes — value is `ChIJ9U5j8FPzcC4RGfoJsjexJvY` |
-| 2 | `GOOGLE_PLACES_KEY` | `scripts/fetch-reviews.mjs` (build-time) | Local `.env` + Vercel "Environment Variables" → Production + Preview | Yes — your Places API (New) key |
-| 3 | `VERCEL_DEPLOY_HOOK_URL` | `api/cron-rebuild.ts` (runtime, edge) | Vercel "Environment Variables" → Production only. **Never put in local `.env`.** | Yes (only needed once cron is wired) |
-| 4 | `CRON_SECRET` | `api/cron-rebuild.ts` (runtime, edge) | **Auto-set by Vercel** when cron runs — do not set manually | n/a |
+| 1 | `GOOGLE_PLACE_ID` | `scripts/fetch-reviews.mjs` (build-time) | Local `.env` + Vercel → Production + Preview | Yes — value is `ChIJ9U5j8FPzcC4RGfoJsjexJvY` |
+| 2 | `GOOGLE_PLACES_KEY` | `scripts/fetch-reviews.mjs` (build-time) | Local `.env` + Vercel → Production + Preview | Yes — your Places API (New) key |
+| 3 | `VERCEL_DEPLOY_HOOK_URL` | `api/cron-rebuild.ts` (runtime, edge) | Vercel → Production only. **Never in local `.env`.** | Yes (once cron is wired) |
+| 4 | `CRON_SECRET` | `api/cron-rebuild.ts` (runtime, edge) | **Auto-set by Vercel** — do not set manually | n/a |
 
-None of these reach the browser bundle. `GOOGLE_*` vars run only on the build server. `VERCEL_DEPLOY_HOOK_URL` and `CRON_SECRET` run only inside the edge function during cron.
+None of these reach the browser bundle.
 
 ---
 
 ## Local development
 
 ```bash
-cp .env.example .env             # then fill in GOOGLE_PLACES_KEY in .env
+cp .env.example .env             # fill in GOOGLE_PLACES_KEY
 npm install
-npm run fetch:reviews            # one-time: populate src/data/reviews.json
+npm run fetch:reviews            # populate src/data/reviews.json (one-time)
 npm run dev                      # http://localhost:5173
-npm run build                    # prebuild (fetch) → vite build → postbuild (prerender)
+npm run build                    # prebuild → vite build → postbuild (prerender all 7 routes)
 npm run preview                  # serve the production bundle locally
 npm run typecheck                # tsc -b --noEmit
 ```
 
-If you skip the `fetch:reviews` step, the dev site still renders — just with the empty placeholder (fallback testimonials, no WhatsApp recipient). After running it once, the testimonials section, JSON-LD aggregateRating, and WhatsApp deep links will mirror what production sees.
-
-**Don't commit the populated `src/data/reviews.json`.** The fetcher overwrites it on every build; only the empty-placeholder version belongs in git. If you accidentally stage a populated copy, `git checkout -- src/data/reviews.json` reverts it.
+If you skip `fetch:reviews`, the site still renders — fallback testimonials, no WhatsApp recipient. Run it once to mirror production.
 
 ---
 
 ## Deployment to Vercel
 
-The project deploys in three phases. Phase A gets the site live with reviews. Phase B turns on the daily review refresh. Phase C cuts over your domain.
-
 ### Phase A — first deploy with reviews
 
-**A1.** Push to GitHub (any repo name will do).
+**A1.** Push to GitHub.
 
-**A2.** Go to [vercel.com](https://vercel.com) → **New Project** → import the repo. Vercel auto-detects Vite; leave all defaults.
+**A2.** Vercel → **New Project** → import repo. Vite is auto-detected; leave all defaults.
 
-**A3.** Before clicking Deploy, open **Project Settings → Environment Variables** and add these two:
+**A3.** Before clicking Deploy, add env vars under **Project Settings → Environment Variables**:
 
 | Variable | Value | Environments |
 |---|---|---|
 | `GOOGLE_PLACE_ID` | `ChIJ9U5j8FPzcC4RGfoJsjexJvY` | ☑ Production ☑ Preview |
-| `GOOGLE_PLACES_KEY` | *your Google Places API (New) key* | ☑ Production ☑ Preview |
+| `GOOGLE_PLACES_KEY` | *your Places API key* | ☑ Production ☑ Preview |
 
-**A4.** Click **Deploy**. When the build runs, the log should include:
+**A4.** Click **Deploy**. Build log should include:
 
 ```
 [reviews] Wrote 5 review(s), rating 4.9, 132 total.
-[prerender] Rendered 63606 bytes of HTML.
-[prerender] Injected SSR HTML into /vercel/path0/dist/index.html
+[prerender] Wrote dist/index.html (79590 bytes)
+[prerender] Wrote dist/jasa-pindah-rumah-semarang/index.html (60309 bytes)
+...
+[prerender] Done.
 ```
 
-If you see `[reviews] GOOGLE_PLACE_ID or GOOGLE_PLACES_KEY not set — skipping fetch.`, the env vars didn't apply — redeploy after fixing.
-
-**A5.** Open the preview URL. Reviews section should show real Google reviews with the "4.9★ based on 132 Google reviews" header.
+**A5.** Open the preview URL. Reviews, fleet table, how-it-works steps, and service area should all render.
 
 ### Phase B — monthly review refresh (Vercel Cron)
 
-Without this phase the site still works; reviews just won't auto-update. Set this up if you want fresh reviews every month.
+**B1.** **Project Settings → Git → Deploy Hooks** → **Create Hook** → branch `main` → copy the URL.
 
-**B1.** **Project Settings → Git → Deploy Hooks** → **Create Hook**.
-   - Hook name: `Monthly reviews refresh`
-   - Branch: `main`
-   - Click **Create Hook**, then copy the generated URL (`https://api.vercel.com/v1/integrations/deploy/...`).
-
-**B2.** **Project Settings → Environment Variables** → add a third variable:
+**B2.** **Environment Variables** → add:
 
 | Variable | Value | Environments |
 |---|---|---|
-| `VERCEL_DEPLOY_HOOK_URL` | *the URL from B1* | ☑ Production *(only)* |
+| `VERCEL_DEPLOY_HOOK_URL` | *URL from B1* | ☑ Production only |
 
-**B3.** Trigger a redeploy (Deployments tab → ⋯ → Redeploy on the latest) so the new env var is picked up by the edge function.
+**B3.** Redeploy so the edge function picks up the new var.
 
-**B4.** Verify the cron is active: **Project → Cron Jobs tab** should show `/api/cron-rebuild` on schedule `0 3 1 * *`. Click **Run** once. The function should return `{"triggered":true, ...}` and a new deployment should kick off within ~60 seconds. (You don't have to wait until the 1st of the month to test — the manual Run button bypasses the schedule.)
-
-You don't need to set `CRON_SECRET` — Vercel auto-injects it on every cron invocation, and the edge function verifies it.
+**B4.** **Project → Cron Jobs tab** → should show `/api/cron-rebuild` on `0 3 1 * *`. Click **Run** once to verify it returns `{"triggered":true}`.
 
 ### Phase C — domain + SEO
 
-**C1.** Run the live URL through:
-- Google [Rich Results Test](https://search.google.com/test/rich-results) → expect ✓ on `MovingCompany` and `FAQPage`.
-- [Schema.org Validator](https://validator.schema.org/) → expect 0 errors.
+**C1.** Rich Results Test → expect ✓ on `MovingCompany`, `FAQPage`, `Service`, `BreadcrumbList`.
 
 **C2.** Point `indo-mover.com` DNS at Vercel (Project Settings → Domains).
 
-**C3.** [Google Search Console](https://search.google.com/search-console) → add the domain → submit `https://indo-mover.com/sitemap.xml`.
+**C3.** Google Search Console → add domain → submit `https://indo-mover.com/sitemap.xml` (7 URLs) → request indexing for each landing page URL via URL Inspection.
 
-**C4.** Project → **Analytics** tab → click **Enable Analytics**. The `<Analytics />` script in the bundle starts reporting page views immediately (Hobby tier includes ~2,500 events / month).
-
-### Cron schedule
-
-`0 3 1 * *` = **03:00 UTC on the 1st of each month** = 10:00 WIB on the 1st. Vercel Hobby tier caps cron at "no more than once per day"; monthly is well within that limit. Pick a different cadence by editing the `schedule` field — e.g. `0 3 * * 1` for every Monday, `0 3 * * *` for daily.
+**C4.** Vercel **Analytics** tab → **Enable Analytics**.
 
 ### API key safety
 
-- The Places API key runs only on Vercel's build runner. It never lands in the client bundle, never in git, never in a public route.
-- Restrict the key in GCP Console → APIs & Services → Credentials:
-  - **API restriction:** "Places API (New)" only.
-  - **Application restriction:** "None" is fine since the key is server-side. Don't add HTTP-referrer or IP restrictions — Vercel build IPs rotate.
+Restrict the key in GCP Console → APIs & Services → Credentials:
+- **API restriction:** "Places API (New)" only.
+- **Application restriction:** "None" — key is server-side only; don't add HTTP-referrer or IP restrictions (Vercel build IPs rotate).
 
 ---
 
@@ -271,63 +268,75 @@ You don't need to set `CRON_SECRET` — Vercel auto-injects it on every cron inv
 
 ```
 indomover/
-├── README.md                    ← this file
-├── index.html                   ← static head, OG, hreflang
-├── package.json                 ← prebuild + fetch:reviews scripts
+├── README.md
+├── SEO_PLAN.md                  ← full SEO research, competitive analysis, implementation log
+├── index.html                   ← static head defaults (patched per-route by prerender.mjs)
+├── package.json
 ├── vite.config.ts
 ├── tsconfig.{json,app.json,node.json}
-├── vercel.json                  ← SPA rewrite (excl /api) + crons
+├── vercel.json                  ← SPA catch-all rewrite (excl /api) + monthly cron
 ├── .env.example
 ├── .gitignore
 ├── api/
 │   └── cron-rebuild.ts          ← edge function called by Vercel Cron
 ├── scripts/
 │   ├── fetch-reviews.mjs        ← prebuild: pulls Google Places data
-│   └── prerender.mjs            ← postbuild: SSR → injects HTML into dist/
+│   └── prerender.mjs            ← postbuild: renders 7 routes → dist/<slug>/index.html
 ├── public/
 │   ├── favicon.svg
 │   ├── robots.txt
-│   ├── sitemap.xml
-│   └── images/                  ← downloaded from indo-mover.com
+│   ├── sitemap.xml              ← 7 URLs; lastmod auto-updated by prerender.mjs on every build
+│   └── images/
 └── src/
-    ├── main.tsx                 ← hydrateRoot when SSR'd, createRoot otherwise
-    ├── entry-server.tsx         ← SSR entry exporting render()
-    ├── App.tsx
+    ├── main.tsx                 ← BrowserRouter; hydrateRoot when SSR'd, createRoot otherwise
+    ├── entry-server.tsx         ← SSR entry: StaticRouter (from react-router) + render(url)
+    ├── App.tsx                  ← Routes: / → HomePage, /<slug>/ → LandingPage
     ├── index.css                ← Tailwind v4 + @theme tokens
     ├── data/
-    │   └── reviews.json         ← committed; overwritten by prebuild
+    │   ├── reviews.json         ← committed empty placeholder; overwritten by prebuild
+    │   └── landingPages.ts      ← content + metadata for all 6 landing pages
     ├── i18n/
     │   ├── LanguageContext.tsx
-    │   ├── id.json              ← keyword-rich Indonesian copy + SEO/FAQ
-    │   └── en.json              ← English mirror
+    │   ├── id.json              ← default; Dict type inferred from this file
+    │   └── en.json              ← structurally identical English mirror
     ├── lib/
-    │   ├── whatsapp.ts          ← WA_NUMBER derived from reviews.json#phone
-    │   ├── reviewsData.ts       ← typed view over reviews.json (handles null fields)
+    │   ├── whatsapp.ts
+    │   ├── jsonLd.ts            ← safeJson() escapes < for safe JSON-LD injection
+    │   ├── reviewsData.ts
     │   └── useScrollSpy.ts
+    ├── pages/
+    │   ├── HomePage.tsx         ← home page composition
+    │   └── LandingPage.tsx      ← landing page template (shared by all 6 pages)
     └── components/
-        ├── Navbar.tsx
+        ├── Navbar.tsx           ← useLocation() for cross-page anchor hrefs
         ├── Hero.tsx
         ├── About.tsx
         ├── Services.tsx
         ├── ServiceModal.tsx
+        ├── ServicePageLinks.tsx ← home page: 6-item grid → each landing page
+        ├── Fleet.tsx            ← vehicle table (Pick-Up / CDE / CDD / Fuso)
         ├── WhyUs.tsx
+        ├── HowItWorks.tsx       ← 4-step numbered process
         ├── Testimonials.tsx
-        ├── FAQ.tsx              ← native <details>/<summary>, FAQPage schema
+        ├── FAQ.tsx              ← accepts optional items prop; emits FAQPage JSON-LD
+        ├── RelatedServices.tsx  ← landing page: 5 sibling page links
         ├── CTA.tsx
-        ├── Footer.tsx
+        ├── ServiceArea.tsx      ← 16 districts + nearby cities + inter-city tag pills
+        ├── Footer.tsx           ← useLocation() for cross-page anchors; links all 6 landing pages
+        ├── LandingHero.tsx      ← page-specific hero for landing pages
+        ├── LandingIntro.tsx     ← page-specific intro + highlights for landing pages
+        ├── LandingPageMeta.tsx  ← useEffect: patches title/meta/og/canonical on landing pages
         ├── WhatsAppButton.tsx
         ├── ScrollToTop.tsx
-        ├── SeoHead.tsx          ← per-language title/meta swap
-        └── JsonLd.tsx           ← MovingCompany + FAQPage + WebSite schemas
+        ├── SeoHead.tsx          ← home page per-language title/meta swap
+        └── JsonLd.tsx           ← MovingCompany + WebSite schemas (global)
 ```
 
 ---
 
-
 ## Out of scope
 
-- Per-service detail pages (locked: single page).
 - Backend contact form (locked: WhatsApp-only).
-- CMS — content lives in the i18n JSON dicts; edit in the repo.
+- CMS — content lives in i18n JSON and `src/data/landingPages.ts`; edit in the repo.
 - Blog or content marketing.
 - Booking / quote calculator.
