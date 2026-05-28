@@ -1,9 +1,16 @@
-import { useLanguage } from "../i18n/LanguageContext";
+import { useLocation } from "react-router-dom";
+import { LANDING_PAGES } from "../data/landingPages";
 import { EMAIL_ADDRESS, EMAIL_AVAILABLE } from "../lib/email";
+import { useLanguage } from "../i18n/LanguageContext";
+
+const PAGES = Object.values(LANDING_PAGES);
 
 export default function Footer() {
 	const { t } = useLanguage();
 	const year = new Date().getFullYear();
+	const { pathname } = useLocation();
+	const isHome = pathname === "/";
+	const sectionHref = (id: string) => (isHome ? `#${id}` : `/#${id}`);
 
 	return (
 		<footer className="bg-ink-900 text-ink-100">
@@ -22,13 +29,13 @@ export default function Footer() {
 					<p className="mt-4 max-w-sm text-sm text-ink-100/70">{t.footer.tagline}</p>
 				</div>
 
-				<nav className="text-sm" aria-label="Footer">
+				<nav className="text-sm" aria-label="Footer Layanan">
 					<p className="font-semibold text-white">{t.nav.services}</p>
 					<ul className="mt-3 space-y-2 text-ink-100/70">
-						{t.services.items.map((s) => (
-							<li key={s.title}>
-								<a href="#layanan" className="hover:text-white">
-									{s.title}
+						{PAGES.map((page) => (
+							<li key={page.slug}>
+								<a href={`/${page.slug}/`} className="hover:text-white">
+									{page.navLabel}
 								</a>
 							</li>
 						))}
@@ -39,17 +46,17 @@ export default function Footer() {
 					<p className="font-semibold text-white">{t.nav.contact}</p>
 					<ul className="mt-3 space-y-2 text-ink-100/70">
 						<li>
-							<a href="#tentang" className="hover:text-white">
+							<a href={sectionHref("tentang")} className="hover:text-white">
 								{t.nav.about}
 							</a>
 						</li>
 						<li>
-							<a href="#testimoni" className="hover:text-white">
+							<a href={sectionHref("testimoni")} className="hover:text-white">
 								{t.nav.testimonials}
 							</a>
 						</li>
 						<li>
-							<a href="#kontak" className="hover:text-white">
+							<a href={sectionHref("kontak")} className="hover:text-white">
 								{t.nav.cta}
 							</a>
 						</li>

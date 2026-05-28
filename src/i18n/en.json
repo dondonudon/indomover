@@ -1,7 +1,7 @@
 {
 	"seo": {
-		"title": "Moving Services Semarang | House & Office Movers — Indo Mover",
-		"description": "Indo Mover — professional moving services in Semarang for home, office, warehouse, and apartment relocations. Careful packing, safe transport, free WhatsApp consultation."
+		"title": "Moving Services Semarang — Trusted & Professional | Indo Mover 2026",
+		"description": "Trusted movers in Semarang — Indo Mover handles home, office, warehouse & apartment relocations. Professional team, well-maintained fleet, careful packing. Free survey & consultation via WhatsApp."
 	},
 	"nav": {
 		"home": "Home",
@@ -16,7 +16,7 @@
 	"hero": {
 		"eyebrow": "Trusted Movers in Semarang",
 		"title": "House & Office Moving Services in Semarang",
-		"subtitle": "Professional moving services from Indo Mover — careful packing, safe transport, and an experienced team for home, office, warehouse, and apartment relocations across Semarang.",
+		"subtitle": "Trusted moving services in Semarang — careful packing, well-maintained fleet (Pick-Up to Fuso), experienced team for home, office, warehouse, and apartment relocations. Transparent pricing, free survey.",
 		"ctaPrimary": "Chat on WhatsApp",
 		"ctaSecondary": "See Services",
 		"waMessage": "Hi Indo Mover, I'd like to ask about your moving services."
@@ -24,13 +24,14 @@
 	"about": {
 		"eyebrow": "About Us",
 		"title": "Professional Movers in Semarang",
-		"body": "Indo Mover provides moving services for homes, offices, warehouses, and apartments in Semarang and the surrounding area. We focus on the safety of your belongings, on-time delivery, and customer satisfaction—from survey and packing all the way to unloading. Our moving services have been trusted by hundreds of families and businesses across Central Java.",
+		"body": "Indo Mover provides moving services for homes, offices, warehouses, and apartments in Semarang and the surrounding area. We focus on the safety of your belongings, on-time delivery, and customer satisfaction—from survey and packing all the way to unloading. Our moving services have been trusted by hundreds of families and businesses across Central Java. We serve all districts in Semarang—Tembalang, Banyumanik, Pedurungan, Ngaliyan, West Semarang, and more—as well as nearby cities like Demak, Ungaran, and Kendal.",
 		"highlights": [
 			"Free on-site survey",
 			"High-quality packing materials",
 			"Well-maintained fleet & experienced drivers",
 			"In-city and inter-city moving services",
-			"Optional insurance for valuable items"
+			"Optional insurance for valuable items",
+			"Serving all 16 Semarang districts & inter-city Central Java"
 		]
 	},
 	"services": {
@@ -60,9 +61,9 @@
 				"slug": "transport",
 				"image": "/images/service-handtruck.jpg",
 				"title": "Safe Moving Transport",
-				"desc": "Closed, well-maintained trucks with proper tie-downs—for in-city moves around Semarang or inter-city relocations.",
+				"desc": "Closed, well-maintained trucks with proper tie-downs—for in-city moves around Semarang or inter-city relocations. Available in Pick-Up, CDE, CDD, and Fuso to match your volume.",
 				"bullets": [
-					"Closed trucks in multiple sizes (small, medium, large)",
+					"Closed trucks in multiple sizes (Pick-Up, CDE, CDD, Fuso)",
 					"Tie-downs and backup tarps",
 					"Experienced drivers across Central Java",
 					"Estimated arrival tracking"
@@ -109,6 +110,71 @@
 			{
 				"title": "Flexible",
 				"desc": "Moving schedule that adapts to your needs—including weekends and evenings."
+			}
+		]
+	},
+	"fleet": {
+		"eyebrow": "Our Fleet",
+		"title": "Choose the Right Vehicle for Your Move",
+		"subtitle": "We offer a range of vehicles for moves of all sizes. Our team will recommend the most efficient option during the free survey.",
+		"items": [
+			{
+				"name": "Pick-Up / Blind Van",
+				"capacity": "± 1–2 CBM",
+				"suitable": "Boarding room, 1 room, light load",
+				"example": "Wardrobe, single mattress, 10–15 boxes"
+			},
+			{
+				"name": "CDE / Small Box Truck",
+				"capacity": "± 6–8 CBM",
+				"suitable": "1–2 bedroom home, studio apartment",
+				"example": "Living room furniture + 2 bedrooms"
+			},
+			{
+				"name": "CDD / Medium Box Truck",
+				"capacity": "± 12–15 CBM",
+				"suitable": "3–4 bedroom home, small office",
+				"example": "Full household furniture"
+			},
+			{
+				"name": "Fuso / Wingbox",
+				"capacity": "± 20–30 CBM",
+				"suitable": "Large home, office, warehouse",
+				"example": "Mid-size office relocation or large home"
+			}
+		],
+		"labels": {
+			"capacity": "Capacity",
+			"suitable": "Best for",
+			"example": "Example load"
+		},
+		"note": "Not sure which vehicle fits? Our team will recommend the right one during the free survey.",
+		"cta": "Consult Fleet via WhatsApp",
+		"waMessage": "Hi Indo Mover, I'd like to consult about the right vehicle for my move."
+	},
+	"howItWorks": {
+		"eyebrow": "How It Works",
+		"title": "Indo Mover's Moving Process — Simple & Transparent",
+		"steps": [
+			{
+				"number": "01",
+				"title": "Contact & Consult",
+				"desc": "Chat on WhatsApp or call us. Tell us about your move—origin, destination, date, and a rough idea of what needs to be moved."
+			},
+			{
+				"number": "02",
+				"title": "Free On-Site Survey",
+				"desc": "Our team visits your location to assess the volume of items, evaluate access, and recommend the right vehicle. The survey is free and non-binding."
+			},
+			{
+				"number": "03",
+				"title": "Quote & Confirm",
+				"desc": "You receive a transparent price quote based on the survey. Once confirmed, we schedule the move on the date that works for you."
+			},
+			{
+				"number": "04",
+				"title": "Move Done",
+				"desc": "Our professional team arrives on time and handles packing, loading, transport, and unloading from start to finish. Your belongings arrive safe."
 			}
 		]
 	},
@@ -163,8 +229,78 @@
 			{
 				"q": "How do I book Indo Mover?",
 				"a": "Just reach out on WhatsApp. The team will schedule a free on-site survey and give you a quote tailored to your move."
+			},
+			{
+				"q": "What is the estimated price range for moving in Semarang?",
+				"a": "Moving costs in Semarang typically start from Rp 500,000 for a small in-city move using a pick-up truck, up to Rp 3,000,000–5,000,000 for a large home using a Fuso truck. The final price depends on volume, vehicle type, distance, and any add-ons. We offer a free survey for an accurate estimate."
+			},
+			{
+				"q": "What vehicles does Indo Mover have available?",
+				"a": "Indo Mover has Pick-Up/Blind Van (small moves or boarding rooms), CDE/Small Box Truck (medium capacity, 2–3 rooms), CDD/Medium Box Truck (large capacity, 3–4 bedroom home), and Fuso/Wingbox (office or warehouse relocations). Our team recommends the most efficient option during the free survey."
+			},
+			{
+				"q": "Which districts in Semarang do you cover?",
+				"a": "We cover all districts in Semarang, including Tembalang, Banyumanik, Pedurungan, Genuk, Central Semarang, West Semarang, North Semarang, South Semarang, East Semarang, Candisari, Gajahmungkur, Gunungpati, Mijen, Ngaliyan, and surrounding areas. We also serve nearby cities like Demak, Ungaran, Kendal, and Salatiga."
+			},
+			{
+				"q": "Do you handle inter-city moves?",
+				"a": "Yes, we handle inter-city relocations across Central Java and beyond. Popular routes include Semarang–Jakarta, Semarang–Surabaya, Semarang–Yogyakarta, and Semarang–Bandung. Schedules and pricing for inter-city moves are confirmed during the survey."
 			}
 		]
+	},
+	"serviceArea": {
+		"eyebrow": "Service Area",
+		"title": "Indo Mover Coverage Area",
+		"intro": "We provide moving services across all of Semarang and surrounding areas, including inter-city moves throughout Central Java and beyond.",
+		"groups": [
+			{
+				"label": "Semarang Districts",
+				"places": [
+					"Tembalang",
+					"Banyumanik",
+					"Pedurungan",
+					"Genuk",
+					"Central Semarang",
+					"West Semarang",
+					"North Semarang",
+					"South Semarang",
+					"East Semarang",
+					"Candisari",
+					"Gajahmungkur",
+					"Gunungpati",
+					"Mijen",
+					"Ngaliyan",
+					"Tugu",
+					"Gajah Mungkur"
+				]
+			},
+			{
+				"label": "Greater Semarang",
+				"places": ["Demak", "Ungaran", "Kendal", "Salatiga", "Kudus"]
+			},
+			{
+				"label": "Inter-City",
+				"places": [
+					"Solo",
+					"Yogyakarta",
+					"Surabaya",
+					"Jakarta",
+					"Bandung",
+					"Purwokerto",
+					"Pekalongan",
+					"Tegal"
+				]
+			}
+		],
+		"note": "Don't see your city? Contact us — we serve almost anywhere in Indonesia.",
+		"cta": "Ask About Your Route",
+		"waMessage": "Hi Indo Mover, I'd like to check if you cover my moving route."
+	},
+	"internalLinks": {
+		"servicePages": "Our Service Pages",
+		"servicePagesSubtitle": "Detailed information per move type — pick the one that fits your needs.",
+		"relatedServices": "Related Services",
+		"viewPage": "View Page"
 	},
 	"cta": {
 		"title": "Need a Mover in Semarang? Start Here",

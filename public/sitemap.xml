@@ -5,11 +5,59 @@
 >
   <url>
     <loc>https://indo-mover.com/</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="id" href="https://indo-mover.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://indo-mover.com/?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://indo-mover.com/" />
+  </url>
+  <url>
+    <loc>https://indo-mover.com/jasa-pindah-rumah-semarang/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://indo-mover.com/jasa-pindah-rumah-semarang/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://indo-mover.com/jasa-pindah-rumah-semarang/" />
+  </url>
+  <url>
+    <loc>https://indo-mover.com/jasa-pindah-kantor-semarang/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://indo-mover.com/jasa-pindah-kantor-semarang/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://indo-mover.com/jasa-pindah-kantor-semarang/" />
+  </url>
+  <url>
+    <loc>https://indo-mover.com/jasa-pindah-kost-semarang/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://indo-mover.com/jasa-pindah-kost-semarang/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://indo-mover.com/jasa-pindah-kost-semarang/" />
+  </url>
+  <url>
+    <loc>https://indo-mover.com/jasa-pindah-murah-semarang/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://indo-mover.com/jasa-pindah-murah-semarang/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://indo-mover.com/jasa-pindah-murah-semarang/" />
+  </url>
+  <url>
+    <loc>https://indo-mover.com/jasa-pindah-antar-kota/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://indo-mover.com/jasa-pindah-antar-kota/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://indo-mover.com/jasa-pindah-antar-kota/" />
+  </url>
+  <url>
+    <loc>https://indo-mover.com/jasa-pindah-apartemen-semarang/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://indo-mover.com/jasa-pindah-apartemen-semarang/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://indo-mover.com/jasa-pindah-apartemen-semarang/" />
   </url>
 </urlset>

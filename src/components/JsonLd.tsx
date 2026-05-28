@@ -1,12 +1,8 @@
 import { useLanguage } from "../i18n/LanguageContext";
+import { safeJson } from "../lib/jsonLd";
 import { reviewsData as data } from "../lib/reviewsData";
 
 const SITE_URL = "https://indo-mover.com";
-
-function safeJson(obj: unknown): string {
-	// Escape `<` so a stray "</script>" inside string fields can't break out.
-	return JSON.stringify(obj).replace(/</g, "\\u003c");
-}
 
 // Drop properties whose value is null or undefined so the emitted
 // JSON-LD doesn't ship empty fields.
@@ -74,6 +70,17 @@ export default function JsonLd() {
 		areaServed: [
 			{ "@type": "City", name: "Semarang" },
 			{ "@type": "AdministrativeArea", name: "Jawa Tengah" },
+			{ "@type": "Place", name: "Tembalang" },
+			{ "@type": "Place", name: "Banyumanik" },
+			{ "@type": "Place", name: "Pedurungan" },
+			{ "@type": "Place", name: "Genuk" },
+			{ "@type": "Place", name: "Semarang Tengah" },
+			{ "@type": "Place", name: "Semarang Barat" },
+			{ "@type": "Place", name: "Semarang Selatan" },
+			{ "@type": "Place", name: "Ngaliyan" },
+			{ "@type": "City", name: "Demak" },
+			{ "@type": "City", name: "Ungaran" },
+			{ "@type": "City", name: "Kendal" },
 		],
 		openingHoursSpecification: [
 			{
@@ -84,23 +91,21 @@ export default function JsonLd() {
 			},
 		],
 		aggregateRating,
+		hasOfferCatalog: {
+			"@type": "OfferCatalog",
+			name: "Layanan Jasa Pindah",
+			itemListElement: [
+				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Pindah Rumah Semarang" } },
+				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Pindah Kantor Semarang" } },
+				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Pindah Kost Semarang" } },
+				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Packing Profesional" } },
+				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Bongkar Muat" } },
+				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Pindah Antar Kota" } },
+			],
+		},
 		sameAs: data.googleMapsUri ? [data.googleMapsUri] : undefined,
 		inLanguage,
 	});
-
-	const faqPage = {
-		"@context": "https://schema.org",
-		"@type": "FAQPage",
-		inLanguage,
-		mainEntity: t.faq.items.map((f) => ({
-			"@type": "Question",
-			name: f.q,
-			acceptedAnswer: {
-				"@type": "Answer",
-				text: f.a,
-			},
-		})),
-	};
 
 	const website = {
 		"@context": "https://schema.org",
@@ -119,7 +124,6 @@ export default function JsonLd() {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: safeJson(localBusiness) }}
 			/>
-			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJson(faqPage) }} />
 			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJson(website) }} />
 		</>
 	);

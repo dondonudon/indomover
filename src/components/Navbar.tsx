@@ -1,5 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useLanguage } from "../i18n/LanguageContext";
 import { useScrollSpy } from "../lib/useScrollSpy";
 import { buildWaLink } from "../lib/whatsapp";
@@ -8,9 +9,16 @@ const SECTION_IDS = ["beranda", "tentang", "layanan", "mengapa", "testimoni", "f
 
 export default function Navbar() {
 	const { t, lang, setLang } = useLanguage();
+	const location = useLocation();
+	const isHome = location.pathname === "/";
 	const active = useScrollSpy(SECTION_IDS);
 	const [scrolled, setScrolled] = useState(false);
 	const [open, setOpen] = useState(false);
+
+	// On landing pages prefix anchor links with "/" so clicking navigates to
+	// the home page section rather than looking for the anchor on the landing page.
+	const sectionHref = (id: string) => (isHome ? `#${id}` : `/#${id}`);
+	const logoHref = isHome ? "#beranda" : "/";
 
 	useEffect(() => {
 		const onScroll = () => setScrolled(window.scrollY > 8);
@@ -54,7 +62,7 @@ export default function Navbar() {
 			].join(" ")}
 		>
 			<div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-				<a href="#beranda" className="flex items-center gap-2 font-bold tracking-tight">
+				<a href={logoHref} className="flex items-center gap-2 font-bold tracking-tight">
 					<span className="grid h-10 w-10 place-items-center rounded-xl bg-white shadow-sm ring-1 ring-ink-900/10">
 						<img src="/images/indo-mover-logo-only.png" alt="" className="h-8 w-8 object-contain" />
 					</span>
@@ -65,7 +73,7 @@ export default function Navbar() {
 					{links.map((l) => (
 						<a
 							key={l.id}
-							href={`#${l.id}`}
+							href={sectionHref(l.id)}
 							className={[
 								"rounded-full px-3 py-2 text-sm font-medium transition-colors",
 								active === l.id ? linkActive : linkBase,
@@ -123,7 +131,7 @@ export default function Navbar() {
 						{links.map((l) => (
 							<a
 								key={l.id}
-								href={`#${l.id}`}
+								href={sectionHref(l.id)}
 								onClick={() => setOpen(false)}
 								className={[
 									"rounded-lg px-3 py-2 text-sm font-medium",

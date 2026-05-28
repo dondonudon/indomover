@@ -1,7 +1,7 @@
 {
 	"seo": {
-		"title": "Jasa Pindah Rumah & Kantor Semarang | Indo Mover",
-		"description": "Indo Mover — jasa pindah rumah, kantor, gudang, dan apartemen di Semarang. Packing profesional, transportasi aman, tim berpengalaman. Konsultasi & survey gratis via WhatsApp."
+		"title": "Jasa Pindah Semarang Terpercaya & Profesional | Indo Mover 2026",
+		"description": "Jasa pindah Semarang terpercaya — Indo Mover melayani pindah rumah, kantor, gudang & apartemen. Tim profesional, armada terawat, packing rapi. Survey & konsultasi gratis via WhatsApp."
 	},
 	"nav": {
 		"home": "Beranda",
@@ -16,7 +16,7 @@
 	"hero": {
 		"eyebrow": "Jasa Pindah Semarang Terpercaya",
 		"title": "Jasa Pindah Rumah & Kantor di Semarang",
-		"subtitle": "Solusi pindahan profesional dari Indo Mover — packing rapi, transportasi aman, tim berpengalaman untuk pindah rumah, kantor, gudang, dan apartemen di Semarang dan sekitarnya.",
+		"subtitle": "Solusi pindahan terpercaya di Semarang — packing rapi, armada terawat (Pick-Up hingga Fuso), tim berpengalaman untuk pindah rumah, kantor, gudang, dan apartemen di Semarang dan sekitarnya. Harga transparan, survey gratis.",
 		"ctaPrimary": "Hubungi via WhatsApp",
 		"ctaSecondary": "Lihat Layanan",
 		"waMessage": "Halo Indo Mover, saya ingin bertanya tentang jasa pindah."
@@ -24,13 +24,14 @@
 	"about": {
 		"eyebrow": "Tentang Kami",
 		"title": "Tim Jasa Pindah Profesional di Semarang",
-		"body": "Indo Mover adalah penyedia jasa pindah rumah, kantor, gudang, dan apartemen di Semarang dan sekitarnya. Kami fokus pada keselamatan barang, ketepatan waktu, dan kepuasan pelanggan—dari survey, packing, sampai bongkar di lokasi tujuan. Layanan jasa pindahan kami telah dipercaya oleh ratusan keluarga dan perusahaan di Jawa Tengah.",
+		"body": "Indo Mover adalah penyedia jasa pindah rumah, kantor, gudang, dan apartemen di Semarang dan sekitarnya. Kami fokus pada keselamatan barang, ketepatan waktu, dan kepuasan pelanggan—dari survey, packing, sampai bongkar di lokasi tujuan. Layanan jasa pindahan kami telah dipercaya oleh ratusan keluarga dan perusahaan di Jawa Tengah. Kami melayani seluruh kecamatan di Kota Semarang—Tembalang, Banyumanik, Pedurungan, Ngaliyan, Semarang Barat, dan lainnya—serta kota-kota sekitar seperti Demak, Ungaran, dan Kendal.",
 		"highlights": [
 			"Survey gratis di lokasi",
 			"Material packing berkualitas",
 			"Armada terawat & sopir berpengalaman",
 			"Layanan jasa pindah dalam & luar kota",
-			"Asuransi opsional untuk barang bernilai"
+			"Asuransi opsional untuk barang bernilai",
+			"Melayani 16 kecamatan di Semarang & antar kota Jawa Tengah"
 		]
 	},
 	"services": {
@@ -60,9 +61,9 @@
 				"slug": "transport",
 				"image": "/images/service-handtruck.jpg",
 				"title": "Jasa Transportasi Pindahan",
-				"desc": "Armada tertutup dan terawat dengan tali pengikat khusus, untuk jasa pindah dalam kota Semarang maupun antar kota.",
+				"desc": "Armada tertutup dan terawat dengan tali pengikat khusus, untuk jasa pindah dalam kota Semarang maupun antar kota. Tersedia Pick-Up, CDE, CDD, hingga Fuso sesuai volume barang.",
 				"bullets": [
-					"Truk tertutup berbagai ukuran (CDE, CDD, Fuso)",
+					"Truk tertutup berbagai ukuran (Pick-Up, CDE, CDD, Fuso)",
 					"Tali pengikat dan terpal cadangan",
 					"Sopir berpengalaman rute Jateng & sekitarnya",
 					"Tracking estimasi waktu tiba"
@@ -109,6 +110,71 @@
 			{
 				"title": "Fleksibel",
 				"desc": "Jadwal jasa pindah menyesuaikan kebutuhan Anda, termasuk akhir pekan dan malam hari."
+			}
+		]
+	},
+	"fleet": {
+		"eyebrow": "Armada",
+		"title": "Pilih Armada Sesuai Kebutuhan Pindahan",
+		"subtitle": "Kami menyediakan berbagai pilihan armada untuk pindahan skala kecil hingga besar. Tim kami akan merekomendasikan yang paling efisien saat survey gratis.",
+		"items": [
+			{
+				"name": "Pick-Up / Blind Van",
+				"capacity": "± 1–2 CBM",
+				"suitable": "Kost, 1 kamar, barang sedikit",
+				"example": "Lemari pakaian, kasur single, 10–15 kardus"
+			},
+			{
+				"name": "CDE / Engkel Box",
+				"capacity": "± 6–8 CBM",
+				"suitable": "Rumah 1–2 kamar, apartemen studio",
+				"example": "Perabot ruang tamu + 2 kamar tidur"
+			},
+			{
+				"name": "CDD / Colt Diesel Double",
+				"capacity": "± 12–15 CBM",
+				"suitable": "Rumah 3–4 kamar, kantor kecil",
+				"example": "Perabot lengkap rumah keluarga"
+			},
+			{
+				"name": "Fuso / Wingbox",
+				"capacity": "± 20–30 CBM",
+				"suitable": "Rumah besar, kantor, gudang",
+				"example": "Pindahan kantor skala menengah atau rumah mewah"
+			}
+		],
+		"labels": {
+			"capacity": "Kapasitas",
+			"suitable": "Cocok untuk",
+			"example": "Contoh muatan"
+		},
+		"note": "Tidak yakin armada apa yang tepat? Tim kami akan merekomendasikan saat survey gratis.",
+		"cta": "Konsultasi Armada via WhatsApp",
+		"waMessage": "Halo Indo Mover, saya ingin konsultasi pilihan armada untuk pindahan saya."
+	},
+	"howItWorks": {
+		"eyebrow": "Cara Kerja",
+		"title": "Proses Jasa Pindah Indo Mover, Mudah & Transparan",
+		"steps": [
+			{
+				"number": "01",
+				"title": "Hubungi & Konsultasi",
+				"desc": "Chat WhatsApp atau telepon kami. Ceritakan kebutuhan pindahan Anda—lokasi asal, tujuan, tanggal, dan gambaran barang yang perlu dipindahkan."
+			},
+			{
+				"number": "02",
+				"title": "Survey Gratis di Lokasi",
+				"desc": "Tim kami datang ke lokasi Anda untuk menghitung volume barang, menilai akses, dan merekomendasikan armada yang tepat. Survey ini gratis dan tanpa kewajiban."
+			},
+			{
+				"number": "03",
+				"title": "Penawaran & Konfirmasi",
+				"desc": "Anda menerima penawaran harga transparan sesuai hasil survey. Setelah konfirmasi, kami jadwalkan tanggal pindahan sesuai keinginan Anda."
+			},
+			{
+				"number": "04",
+				"title": "Pindahan Beres",
+				"desc": "Tim profesional kami tiba tepat waktu, mengerjakan packing, loading, transport, dan unloading hingga selesai. Barang aman, Anda tenang."
 			}
 		]
 	},
@@ -163,8 +229,78 @@
 			{
 				"q": "Bagaimana cara pesan jasa pindah Indo Mover?",
 				"a": "Cukup hubungi kami via WhatsApp. Tim akan menjadwalkan survey gratis di lokasi Anda dan memberikan penawaran sesuai kebutuhan pindahan."
+			},
+			{
+				"q": "Berapa estimasi harga jasa pindah di Semarang?",
+				"a": "Biaya jasa pindah di Semarang umumnya mulai dari Rp 500.000 untuk pindahan kecil dalam kota menggunakan mobil pick-up, hingga Rp 3.000.000–5.000.000 untuk rumah besar dengan truk Fuso. Harga final tergantung volume barang, jenis armada, jarak, dan layanan tambahan. Kami menyediakan survey gratis untuk estimasi akurat."
+			},
+			{
+				"q": "Apa saja armada yang tersedia di Indo Mover?",
+				"a": "Indo Mover menyediakan Pick-Up/Blind Van (pindahan kecil atau kost), CDE/Engkel Box (kapasitas sedang, cocok 2–3 kamar), CDD/Colt Diesel Double (kapasitas besar, rumah 3–4 kamar), dan Fuso/Wingbox (pindahan kantor atau gudang besar). Tim kami akan merekomendasikan armada yang paling efisien saat survey."
+			},
+			{
+				"q": "Wilayah mana saja di Semarang yang dilayani Indo Mover?",
+				"a": "Kami melayani seluruh wilayah Semarang, termasuk Tembalang, Banyumanik, Pedurungan, Genuk, Semarang Tengah, Semarang Barat, Semarang Utara, Semarang Selatan, Semarang Timur, Candisari, Gajahmungkur, Gunungpati, Mijen, Ngaliyan, dan sekitarnya. Kami juga melayani kota-kota di sekitar Semarang seperti Demak, Ungaran, Kendal, dan Salatiga."
+			},
+			{
+				"q": "Apakah Indo Mover bisa membantu pindahan antar kota?",
+				"a": "Ya, kami melayani jasa pindah antar kota di seluruh Jawa Tengah dan luar provinsi. Rute populer meliputi Semarang–Jakarta, Semarang–Surabaya, Semarang–Yogyakarta, dan Semarang–Bandung. Jadwal dan biaya antar kota disesuaikan saat survey."
 			}
 		]
+	},
+	"serviceArea": {
+		"eyebrow": "Area Layanan",
+		"title": "Wilayah Layanan Jasa Pindah Indo Mover",
+		"intro": "Kami melayani jasa pindah di seluruh Kota Semarang dan kawasan sekitarnya, hingga antar kota di Jawa Tengah dan luar provinsi.",
+		"groups": [
+			{
+				"label": "Kecamatan di Kota Semarang",
+				"places": [
+					"Tembalang",
+					"Banyumanik",
+					"Pedurungan",
+					"Genuk",
+					"Semarang Tengah",
+					"Semarang Barat",
+					"Semarang Utara",
+					"Semarang Selatan",
+					"Semarang Timur",
+					"Candisari",
+					"Gajahmungkur",
+					"Gunungpati",
+					"Mijen",
+					"Ngaliyan",
+					"Tugu",
+					"Gajah Mungkur"
+				]
+			},
+			{
+				"label": "Sekitar Semarang",
+				"places": ["Demak", "Ungaran", "Kendal", "Salatiga", "Kudus"]
+			},
+			{
+				"label": "Antar Kota",
+				"places": [
+					"Solo",
+					"Yogyakarta",
+					"Surabaya",
+					"Jakarta",
+					"Bandung",
+					"Purwokerto",
+					"Pekalongan",
+					"Tegal"
+				]
+			}
+		],
+		"note": "Tidak menemukan kota Anda? Hubungi kami — kami melayani hampir seluruh wilayah Indonesia.",
+		"cta": "Tanya Rute Pindahan Anda",
+		"waMessage": "Halo Indo Mover, saya ingin tanya apakah kalian melayani rute pindahan saya."
+	},
+	"internalLinks": {
+		"servicePages": "Halaman Layanan Kami",
+		"servicePagesSubtitle": "Informasi lengkap per jenis pindahan — pilih yang sesuai kebutuhan Anda.",
+		"relatedServices": "Layanan Terkait",
+		"viewPage": "Lihat Halaman"
 	},
 	"cta": {
 		"title": "Butuh Jasa Pindah di Semarang? Mulai dari Sini",
