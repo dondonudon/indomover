@@ -4,7 +4,7 @@ import { useLanguage } from "../i18n/LanguageContext";
 import { buildWaLink } from "../lib/whatsapp";
 
 export default function ServiceArea() {
-	const { t } = useLanguage();
+	const { t, lang } = useLanguage();
 
 	return (
 		<section id="area-layanan" className="bg-ink-50 py-20 sm:py-28">
@@ -20,6 +20,7 @@ export default function ServiceArea() {
 				</div>
 
 				<motion.div
+					key={lang}
 					initial="hidden"
 					whileInView="show"
 					viewport={{ once: true, margin: "-80px" }}
