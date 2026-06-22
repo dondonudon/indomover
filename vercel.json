@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    { "source": "/jasa-pindah-rumah-semarang", "destination": "/jasa-pindah-rumah-semarang/", "permanent": true },
+    { "source": "/jasa-pindah-kantor-semarang", "destination": "/jasa-pindah-kantor-semarang/", "permanent": true },
+    { "source": "/jasa-pindah-kost-semarang", "destination": "/jasa-pindah-kost-semarang/", "permanent": true },
+    { "source": "/jasa-pindah-murah-semarang", "destination": "/jasa-pindah-murah-semarang/", "permanent": true },
+    { "source": "/jasa-pindah-antar-kota", "destination": "/jasa-pindah-antar-kota/", "permanent": true },
+    { "source": "/jasa-pindah-apartemen-semarang", "destination": "/jasa-pindah-apartemen-semarang/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/" }
   ],

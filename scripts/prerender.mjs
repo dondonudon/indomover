@@ -23,6 +23,7 @@ const ROUTES = [
   {
     path: "/",
     outDir: DIST,
+    isRoot: true,
     title: "Jasa Pindah Semarang Terpercaya & Profesional | Indo Mover 2026",
     description:
       "Jasa pindah Semarang terpercaya — Indo Mover melayani pindah rumah, kantor, gudang & apartemen. Tim profesional, armada terawat, packing rapi. Survey & konsultasi gratis via WhatsApp.",
@@ -78,8 +79,8 @@ const ROUTES = [
   },
 ];
 
-function patchHead(html, { title, description, canonical }) {
-  return html
+function patchHead(html, { title, description, canonical, isRoot = false }) {
+  let result = html
     .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
     .replace(
       /(<meta\s+name="description"\s+content=")[^"]*(")/,
@@ -102,6 +103,27 @@ function patchHead(html, { title, description, canonical }) {
       `$1${canonical}$2`,
     )
     .replace(/<lastmod>[^<]*<\/lastmod>/g, `<lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>`);
+
+  if (!isRoot) {
+    // Landing pages are Indonesian-only: fix hreflang id/x-default to point
+    // to this page's canonical and remove the English alternate entirely.
+    result = result
+      .replace(
+        /(<link\s+rel="alternate"\s+hreflang="id"\s+href=")[^"]*(")/,
+        `$1${canonical}$2`,
+      )
+      .replace(
+        /(<link\s+rel="alternate"\s+hreflang="x-default"\s+href=")[^"]*(")/,
+        `$1${canonical}$2`,
+      )
+      // Remove the en alternate — no English version exists for landing pages
+      .replace(
+        /\n?\s*<link\s+rel="alternate"\s+hreflang="en"\s+href="[^"]*"\s*\/>/g,
+        '',
+      );
+  }
+
+  return result;
 }
 
 async function main() {

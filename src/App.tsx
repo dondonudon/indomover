@@ -1,5 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import JsonLd from "./components/JsonLd";
 import Navbar from "./components/Navbar";
@@ -24,6 +24,7 @@ export default function App() {
 						element={<LandingPage slug={slug} />}
 					/>
 				))}
+				<Route path="*" element={<Navigate to="/" replace />} />
 			</Routes>
 			<Footer />
 			<WhatsAppButton />
