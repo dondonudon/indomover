@@ -32,9 +32,7 @@ export default function Fleet() {
 					<table className="w-full text-sm">
 						<thead className="bg-ink-50">
 							<tr>
-								<th className="px-6 py-4 text-left font-semibold text-ink-900">
-									Armada
-								</th>
+								<th className="px-6 py-4 text-left font-semibold text-ink-900">Armada</th>
 								<th className="hidden px-6 py-4 text-left font-semibold text-ink-900 sm:table-cell">
 									{t.fleet.labels.capacity}
 								</th>
@@ -57,13 +55,9 @@ export default function Fleet() {
 									className="bg-white transition-colors hover:bg-ink-50"
 								>
 									<td className="px-6 py-4 font-semibold text-ink-900">{item.name}</td>
-									<td className="hidden px-6 py-4 text-ink-600 sm:table-cell">
-										{item.capacity}
-									</td>
+									<td className="hidden px-6 py-4 text-ink-600 sm:table-cell">{item.capacity}</td>
 									<td className="px-6 py-4 text-ink-700">{item.suitable}</td>
-									<td className="hidden px-6 py-4 text-ink-500 lg:table-cell">
-										{item.example}
-									</td>
+									<td className="hidden px-6 py-4 text-ink-500 lg:table-cell">{item.example}</td>
 								</motion.tr>
 							))}
 						</tbody>

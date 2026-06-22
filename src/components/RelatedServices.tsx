@@ -38,7 +38,10 @@ export default function RelatedServices({ currentSlug }: { currentSlug: string }
 								</span>
 								<span className="mt-auto pt-3 inline-flex items-center gap-1 text-xs font-medium text-brand-600">
 									{t.internalLinks.viewPage}
-									<ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" aria-hidden />
+									<ArrowRight
+										className="h-3 w-3 transition-transform group-hover:translate-x-0.5"
+										aria-hidden
+									/>
 								</span>
 							</a>
 						</motion.li>

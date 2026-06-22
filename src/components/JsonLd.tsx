@@ -95,9 +95,18 @@ export default function JsonLd() {
 			"@type": "OfferCatalog",
 			name: "Layanan Jasa Pindah",
 			itemListElement: [
-				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Pindah Rumah Semarang" } },
-				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Pindah Kantor Semarang" } },
-				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Pindah Kost Semarang" } },
+				{
+					"@type": "Offer",
+					itemOffered: { "@type": "Service", name: "Jasa Pindah Rumah Semarang" },
+				},
+				{
+					"@type": "Offer",
+					itemOffered: { "@type": "Service", name: "Jasa Pindah Kantor Semarang" },
+				},
+				{
+					"@type": "Offer",
+					itemOffered: { "@type": "Service", name: "Jasa Pindah Kost Semarang" },
+				},
 				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Packing Profesional" } },
 				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Bongkar Muat" } },
 				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Pindah Antar Kota" } },

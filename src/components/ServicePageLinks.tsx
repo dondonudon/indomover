@@ -38,7 +38,10 @@ export default function ServicePageLinks() {
 								className="group flex items-center justify-between rounded-xl bg-white px-5 py-4 text-sm font-semibold text-ink-800 ring-1 ring-ink-200 transition-all hover:ring-brand-400 hover:text-brand-700 hover:shadow-sm"
 							>
 								{page.navLabel}
-								<ArrowRight className="h-4 w-4 flex-none text-ink-400 transition-transform group-hover:translate-x-0.5 group-hover:text-brand-500" aria-hidden />
+								<ArrowRight
+									className="h-4 w-4 flex-none text-ink-400 transition-transform group-hover:translate-x-0.5 group-hover:text-brand-500"
+									aria-hidden
+								/>
 							</a>
 						</motion.li>
 					))}

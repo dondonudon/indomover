@@ -18,11 +18,7 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				{Object.keys(LANDING_PAGES).map((slug) => (
-					<Route
-						key={slug}
-						path={`/${slug}/`}
-						element={<LandingPage slug={slug} />}
-					/>
+					<Route key={slug} path={`/${slug}/`} element={<LandingPage slug={slug} />} />
 				))}
 				<Route path="*" element={<Navigate to="/" replace />} />
 			</Routes>

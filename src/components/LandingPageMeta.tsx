@@ -34,7 +34,9 @@ export default function LandingPageMeta({ page }: { page: LandingPageData }) {
 		const idLink = document.querySelector<HTMLLinkElement>('link[rel="alternate"][hreflang="id"]');
 		if (idLink) idLink.setAttribute("href", canonical);
 
-		const xdefLink = document.querySelector<HTMLLinkElement>('link[rel="alternate"][hreflang="x-default"]');
+		const xdefLink = document.querySelector<HTMLLinkElement>(
+			'link[rel="alternate"][hreflang="x-default"]',
+		);
 		if (xdefLink) xdefLink.setAttribute("href", canonical);
 
 		const enLink = document.querySelector<HTMLLinkElement>('link[rel="alternate"][hreflang="en"]');
