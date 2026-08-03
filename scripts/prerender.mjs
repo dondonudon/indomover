@@ -24,7 +24,7 @@ const ROUTES = [
     path: "/",
     outDir: DIST,
     isRoot: true,
-    title: "Jasa Pindah Semarang Terpercaya & Profesional | Indo Mover 2026",
+    title: "Jasa Pindah Semarang: Rumah, Kantor & Apartemen | Indo Mover",
     description:
       "Jasa pindah Semarang terpercaya — Indo Mover melayani pindah rumah, kantor, gudang & apartemen. Tim profesional, armada terawat, packing rapi. Survey & konsultasi gratis via WhatsApp.",
     canonical: `${SITE_URL}/`,
