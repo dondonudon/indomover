@@ -57,7 +57,7 @@ export default function CTA() {
 				<div className="overflow-hidden rounded-2xl shadow-xl ring-2 ring-white/20">
 					<iframe
 						title="Lokasi Indo Mover Semarang"
-						src="https://maps.google.com/maps?q=Indo+Mover+Jasa+Pindah+Rumah+Kantor+Gudang+Apartemen+Semarang&ll=-6.9707083,110.4327231&z=17&output=embed"
+						src="https://maps.google.com/maps?q=Indo+Mover+Jasa+Pindah+Rumah+Kantor+Gudang+Apartemen+Semarang&z=17&output=embed"
 						width="100%"
 						height="360"
 						style={{ border: 0 }}
