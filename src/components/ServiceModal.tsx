@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Check, MessageCircle, X } from "lucide-react";
 import { useEffect } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { trackWaClick } from "../lib/analytics";
 import { buildWaLink } from "../lib/whatsapp";
 
 type ServiceItem = {
@@ -96,6 +97,7 @@ export default function ServiceModal({ service, onClose }: Props) {
 
 							<a
 								href={buildWaLink(t.services.modal.waMessage.replace("{service}", service.title))}
+								onClick={() => trackWaClick(`service_modal:${service.slug}`)}
 								target="_blank"
 								rel="noreferrer noopener"
 								className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 sm:w-auto"

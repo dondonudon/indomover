@@ -2,6 +2,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLanguage } from "../i18n/LanguageContext";
+import { trackWaClick } from "../lib/analytics";
 import { useScrollSpy } from "../lib/useScrollSpy";
 import { buildWaLink } from "../lib/whatsapp";
 
@@ -107,6 +108,7 @@ export default function Navbar() {
 
 					<a
 						href={buildWaLink(t.hero.waMessage)}
+						onClick={() => trackWaClick("navbar_desktop")}
 						target="_blank"
 						rel="noreferrer noopener"
 						className="hidden rounded-full bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 lg:inline-flex"
@@ -158,9 +160,12 @@ export default function Navbar() {
 							))}
 							<a
 								href={buildWaLink(t.hero.waMessage)}
+								onClick={() => {
+									setOpen(false);
+									trackWaClick("navbar_mobile");
+								}}
 								target="_blank"
 								rel="noreferrer noopener"
-								onClick={() => setOpen(false)}
 								className="ml-auto rounded-full bg-brand-500 px-4 py-2 text-sm font-semibold text-white"
 							>
 								{t.nav.cta}

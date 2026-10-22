@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { trackWaClick } from "../lib/analytics";
 import { buildWaLink } from "../lib/whatsapp";
 
 export default function Fleet() {
@@ -68,6 +69,7 @@ export default function Fleet() {
 					<p className="text-sm text-ink-500">{t.fleet.note}</p>
 					<a
 						href={buildWaLink(t.fleet.waMessage)}
+						onClick={() => trackWaClick("fleet")}
 						target="_blank"
 						rel="noreferrer noopener"
 						className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-400"

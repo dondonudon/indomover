@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import type { LandingPageData } from "../data/landingPages";
+import { trackWaClick } from "../lib/analytics";
 import { buildWaLink } from "../lib/whatsapp";
 
 export default function LandingHero({ page }: { page: LandingPageData }) {
@@ -55,6 +56,7 @@ export default function LandingHero({ page }: { page: LandingPageData }) {
 				>
 					<a
 						href={buildWaLink(hero.waMessage)}
+						onClick={() => trackWaClick("landing_hero")}
 						target="_blank"
 						rel="noreferrer noopener"
 						className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-brand-900/30 transition-colors hover:bg-brand-400"

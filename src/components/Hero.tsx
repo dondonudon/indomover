@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { trackWaClick } from "../lib/analytics";
 import { buildWaLink } from "../lib/whatsapp";
 
 export default function Hero() {
@@ -55,6 +56,7 @@ export default function Hero() {
 				>
 					<a
 						href={buildWaLink(t.hero.waMessage)}
+						onClick={() => trackWaClick("hero")}
 						target="_blank"
 						rel="noreferrer noopener"
 						className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-brand-900/30 transition-colors hover:bg-brand-400"

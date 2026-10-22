@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Mail, MessageCircle } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
-import { EMAIL_AVAILABLE, buildMailtoLink } from "../lib/email";
+import { trackWaClick } from "../lib/analytics";
+import { buildMailtoLink, EMAIL_AVAILABLE } from "../lib/email";
 import { buildWaLink } from "../lib/whatsapp";
 
 export default function CTA() {
@@ -28,6 +29,7 @@ export default function CTA() {
 				<div className="mt-8 flex flex-wrap justify-center gap-4">
 					<a
 						href={buildWaLink(t.cta.waMessage)}
+						onClick={() => trackWaClick("cta_section")}
 						target="_blank"
 						rel="noreferrer noopener"
 						className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-brand-700 shadow-lg transition-transform hover:-translate-y-0.5 hover:bg-brand-50"

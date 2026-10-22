@@ -1,5 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { trackWaClick } from "../lib/analytics";
 import { buildWaLink } from "../lib/whatsapp";
 
 export default function WhatsAppButton() {
@@ -8,6 +9,7 @@ export default function WhatsAppButton() {
 	return (
 		<a
 			href={buildWaLink(t.hero.waMessage)}
+			onClick={() => trackWaClick("floating_button")}
 			target="_blank"
 			rel="noreferrer noopener"
 			aria-label={t.nav.cta}
