@@ -112,7 +112,7 @@ export default function JsonLd() {
 				{ "@type": "Offer", itemOffered: { "@type": "Service", name: "Jasa Pindah Antar Kota" } },
 			],
 		},
-		sameAs: data.googleMapsUri ? [data.googleMapsUri] : undefined,
+		sameAs: [data.googleMapsUri, "https://www.instagram.com/indomoversemarang/"].filter(Boolean),
 		inLanguage,
 	});
 

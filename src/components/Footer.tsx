@@ -1,7 +1,8 @@
+import { Instagram } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { LANDING_PAGES } from "../data/landingPages";
-import { EMAIL_ADDRESS, EMAIL_AVAILABLE } from "../lib/email";
 import { useLanguage } from "../i18n/LanguageContext";
+import { EMAIL_ADDRESS, EMAIL_AVAILABLE } from "../lib/email";
 
 const PAGES = Object.values(LANDING_PAGES);
 
@@ -68,6 +69,16 @@ export default function Footer() {
 							</li>
 						)}
 					</ul>
+					<a
+						href="https://www.instagram.com/indomoversemarang/"
+						target="_blank"
+						rel="noreferrer noopener"
+						aria-label="Instagram Indo Mover"
+						className="mt-4 inline-flex items-center gap-2 text-ink-100/70 transition-colors hover:text-white"
+					>
+						<Instagram className="h-5 w-5" />
+						<span>@indomoversemarang</span>
+					</a>
 				</nav>
 			</div>
 
